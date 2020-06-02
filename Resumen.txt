@@ -1,0 +1,24 @@
+1. Descargar visual studio 
+2. Descargar Mysql Workbench
+3. Descargar Xampp
+4. Descarga el conector mysql para c#
+https://dev.mysql.com/downloads/file/?id=494913
+5. Descargar git
+6. Descargar gitkraken
+
+Enlaces guia: 
+https://es.ourcodeworld.com/articulos/leer/70/como-conectarse-a-una-base-de-datos-mysql-con-c-en-winforms-y-xampp
+https://codigosdeprogramacion.com/2020/01/08/conexion-de-csharp-a-base-de-datos-en-mysql/
+
+Para la base de datos:
+
+1. Crear el usuario:
+Nombre: proyecto
+- con servidor: localhost para que quede: proyecto@localhost
+Contrasena: proyecto123
+
+Con todos los permisos (ALL) y concederselo a la base de datos (paso 2).
+
+2. Crear base de datos: proyectoIng
+
+3. Ejecutar los query para la creacion de las tablas (importacion o ejecucion de los query)
