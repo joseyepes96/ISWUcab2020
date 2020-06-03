@@ -13,7 +13,7 @@
                         </div>
                                 <p class="text-right">
                                      
-                                    <asp:Button runat ="server" ID="btnEliminar" class="btn btn-space btn-primary" OnClick="btnEliminar_Clcik" Text="Eliminar" CausesValidation="False"/> 
+                                    <asp:Button runat ="server" ID="btnEliminar" class="btn btn-space btn-primary" OnClick="btnEliminar_Clcik" Text="Eliminar" CausesValidation="False" OnClientClick="return confirm(&quot;¿Seguro que va a eliminar a este usuario?&quot;)"/> 
                                     <asp:Button runat ="server" ID="btnCancelar" CssClass="btn btn-space btn-secondary" OnClick="btnEliminar_Clcik" Text="Cancelar" cCausesValidation="False"/>
                                 </p>
                             </div>

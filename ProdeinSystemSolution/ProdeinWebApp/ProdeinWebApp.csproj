@@ -593,6 +593,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Command\ConexionBD.cs" />
+    <Compile Include="Command\PersonaCommand.cs" />
     <Compile Include="Command\UsuarioCommand.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />

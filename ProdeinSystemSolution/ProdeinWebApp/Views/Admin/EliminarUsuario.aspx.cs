@@ -30,8 +30,17 @@ namespace ProdeinWebApp.Views.Admin
                 Usuario usuario = userCtrl.verificarUsuario(txtNombre.Text);
                 if (!string.IsNullOrEmpty(usuario._nombre))
                 {
-                    respuesta = userCtrl.eliminarUsuario(usuario);
-                    Response.Write("<script language=javascript>alert('El usuario ha sido eliminado');</script>");
+                    if (usuario._rol == "user")
+                    {
+                        respuesta = userCtrl.eliminarUsuario(usuario);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario ha sido eliminado');", true);
+                        Response.Redirect("ConsultasUsuario.aspx", false);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no se puede eliminar un admin');", true);
+                        Response.Redirect("EliminarUsuario.aspx", false);
+                    }
                 }
                 else
                 {
@@ -44,7 +53,7 @@ namespace ProdeinWebApp.Views.Admin
                 Session["mensajeError"] = "Ha ocurrido un error al eliminar el usuario. " + ex;
                 Response.Redirect("../Error.aspx", false);
             }
-                Response.Redirect("ConsultasUsuario.aspx", false);
+                
         }
 
     }

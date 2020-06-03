@@ -30,7 +30,7 @@ namespace ProdeinWebApp.Views.Admin
                     usuario._rol = txtRol.Text;
                     usuario._permisos = dplPermisos.SelectedValue;
                     respuesta = userCtrl.modificarUsuario(usuario);
-                    Response.Write("<script language=javascript>alert('El usuario se ha modificado');</script>");
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
                 }
                 else
                 {
@@ -39,7 +39,7 @@ namespace ProdeinWebApp.Views.Admin
             }
             catch(Exception ex)
             {
-                Session["mensajeError"] = "Ha ocurrido un error al eliminar el usuario. " + ex;
+                Session["mensajeError"] = "Ha ocurrido un error al modificar el usuario. " + ex;
                 Response.Redirect("../Error.aspx", false);
             }
             Response.Redirect("ConsultasUsuario.aspx", false);
@@ -48,6 +48,30 @@ namespace ProdeinWebApp.Views.Admin
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx", false);
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                UsuarioController userCtrl = new UsuarioController();
+                bool respuesta = false;
+                Usuario usuario = userCtrl.verificarUsuario(txtBuscar.Text);
+                if (!string.IsNullOrEmpty(usuario._nombre))
+                {
+                    txtNombre.Text = usuario._nombre;
+                    txtPassword.Text = usuario._password;
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Session["mensajeError"] = "Ha ocurrido un error al buscar el usuario. " + ex;
+                Response.Redirect("../Error.aspx", false);
+            }
         }
     }
 }
