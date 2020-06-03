@@ -32,6 +32,29 @@ namespace ProdeinWebApp.Controllers
 
             return listaUsuarios;
         }
+        public Usuario verificarUsuario(String nombre)
+        {
+            var userLogin = new Usuario();
+            userLogin._nombre = nombre;
+            UsuarioCommand uc = new UsuarioCommand();
+            Usuario usuario = uc.consultarUsuario(userLogin);
+
+            return usuario;
+        }
+        public bool eliminarUsuario(Usuario user)
+        {
+            var respuesta = false;
+            UsuarioCommand uc = new UsuarioCommand();
+            respuesta = uc.eliminarUsuario(user);
+            return respuesta;
+        }
+        public bool modificarUsuario(Usuario user)
+        {
+            bool respuesta = false;
+            UsuarioCommand uc = new UsuarioCommand();
+            respuesta = uc.modificarUsuario(user);
+            return false;
+        }
     }
     
 }

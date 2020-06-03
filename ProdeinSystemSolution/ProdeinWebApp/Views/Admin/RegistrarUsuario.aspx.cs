@@ -35,7 +35,8 @@ namespace ProdeinWebApp.Views.Admin
 
                 if (!string.IsNullOrEmpty(loginUsuario._nombre)) // si existe el usuario
                 {
-                    Response.Write("<script language=javascript>alert('El usuario que ha ingresado no esta registrado');</script>");
+                    Response.Write("<script language=javascript>alert('El usuario que ha ingresado ya esta registrado');</script>");
+                    
                 }
                 else
                 {
@@ -47,8 +48,7 @@ namespace ProdeinWebApp.Views.Admin
                     respuesta = userCtrl.agregarUsuario(usuario);  
                     if(respuesta)
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('El usuario ha sido registrado exitosamente');" +
-                                "window.location ='Home.aspx';", true);                      
+                        ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('El usuario ha sido registrado exitosamente');", true);                      
                     }
                     else
                     {
@@ -64,6 +64,7 @@ namespace ProdeinWebApp.Views.Admin
                 Session["mensajeError"] = "Ha ocurrido un error al registrar el usuario. " + ex;
                 Response.Redirect("../Error.aspx", false);
             }
+            Response.Redirect("ConsultasUsuario.aspx", false);
         }
     }
 }

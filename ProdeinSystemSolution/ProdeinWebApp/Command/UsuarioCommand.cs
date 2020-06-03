@@ -83,12 +83,47 @@ namespace ProdeinWebApp.Command
             }
             catch (Exception ex)
             {
-                throw new Exception("No se pudo realizar la busqueda. " + ex);
+                throw new Exception("No se pudo agregar. " + ex);
             }
             return respuesta;
         }
         
         /// eliminar usuario
+        public bool eliminarUsuario(Usuario user)
+        {
+            bool respuesta = false;
+            try
+            {
+                var objUser = new Usuario();
+                var conBD = new ConexionBD();
+                respuesta = conBD.eliminarUsuario(user._nombre);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo eliminar. " + ex);
+            }
+            return respuesta;
+            
+        }
         /// modificar usuario
+        public bool modificarUsuario(Usuario user)
+        {
+            var respuesta = false;
+            try
+            {
+                var objUser = new Usuario();
+                var conBD = new ConexionBD();
+
+                if (user._nombre != "")
+                {
+                    respuesta = conBD.modificarUsuario(user);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo realizar la modificacion. " + ex);
+            }
+            return respuesta;
+        }
     }
 }

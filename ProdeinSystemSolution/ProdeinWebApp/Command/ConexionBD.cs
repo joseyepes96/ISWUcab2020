@@ -140,6 +140,58 @@ namespace ProdeinWebApp.Command
                 conexionBD.Close(); //Cierra la conexión a MySQL
             }       
             return respuesta;
-        }        
+        }  
+        public bool eliminarUsuario(String user)
+        {
+            Usuario userBD = new Usuario();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+            
+            
+            try
+            {
+                string query = "DELETE FROM `usuario` WHERE nombre = '" + user + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD; 
+                conexionBD.Open(); 
+                reader = comando.ExecuteReader(); 
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close(); 
+            }
+            return respuesta;
+        }
+        public bool modificarUsuario(Usuario user)
+        {
+            Usuario userBD = new Usuario();
+            MySqlConnection conexionBD = conectarBD(); 
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+            try
+            {
+                string query = "UPDATE `usuario` SET `nombre`='" + user._nombre + "', `password`='" + user._password + "', `rol`='" + user._rol + "',`permisos`= '" + user._permisos + "' WHERE nombre ='" + user._nombre + "' ";
+                MySqlCommand comando = new MySqlCommand(query); 
+                comando.Connection = conexionBD; 
+                conexionBD.Open(); 
+                reader = comando.ExecuteReader(); 
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
     }
 }
