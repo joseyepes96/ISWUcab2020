@@ -272,7 +272,7 @@ namespace ProdeinWebApp.Command
             bool respuesta = false;
             try
             {
-                string query = "UPDATE `persona` SET `tipo de documento`='"+persona._tipo +"',`numero de cedula`='"+persona._identificacion+"',`nombre o razon social`='"+persona._nombre+"',`sexo`='"+persona._sexo+"',`estado civil`='"+persona._estadoCivil+"',`edad`='"+persona._edad+"',`profesion`='"+persona._profesion+"',`correo`='"+persona._correo+"',`direccion`='"+persona._direccion+"',`pais`='"+persona._pais+"',`estados`='"+persona._estado+"',`zona postal`='"+persona._zonaPostal+"',`telefono 1`='"+persona._movil1+"',`telefono 2`='"+persona._movil2+"' WHERE `tipo de documento` ='"+persona._identificacion+"'";
+                string query = "UPDATE `persona` SET `tipo de documento`='"+persona._tipo +"',`numero de cedula`='"+persona._identificacion+"',`nombre o razon social`='"+persona._nombre+"',`sexo`='"+persona._sexo+"',`estado civil`='"+persona._estadoCivil+"',`edad`='"+persona._edad+"',`profesion`='"+persona._profesion+"',`correo`='"+persona._correo+"',`direccion`='"+persona._direccion+"',`pais`='"+persona._pais+"',`estados`='"+persona._estado+"',`zona postal`='"+persona._zonaPostal+"',`telefono 1`='"+persona._movil1+"',`telefono 2`='"+persona._movil2+"' WHERE `numero de cedula` ='"+persona._identificacion+"'";
                 MySqlCommand comando = new MySqlCommand(query);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
