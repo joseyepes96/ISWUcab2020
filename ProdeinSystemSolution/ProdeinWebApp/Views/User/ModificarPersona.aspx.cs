@@ -21,22 +21,19 @@ namespace ProdeinWebApp.Views.Persona
             try
             {
                 PersonaController personaCtrl = new PersonaController();
-                Personas persona = personaCtrl.verificarPersona(txtBuscar.Text);
+                Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtBuscar.Text));
                 if (!string.IsNullOrEmpty(persona._nombre))
                 {
-                    txtTipo.Text = persona._tipo;
-                    txtIdentificacion.Text = persona._identificacion;
+                    txtIdentificacion.Text = Convert.ToString(persona._numeroCedulaRif);
                     txtNombre.Text = persona._nombre;
-                    txtEstCivil.Text = persona._estadoCivil;
-                    txtEdad.Text = persona._edad;
+                    txtEdad.Text = Convert.ToString(persona._edad);
                     txtProfesion.Text = persona._profesion;
                     txtCorreo.Text = persona._correo;
                     txtDireccion.Text = persona._direccion;
-                    txtPais.Text = persona._pais;
                     txtEstado.Text = persona._estado;
-                    txtZonaPostal.Text = persona._zonaPostal;
-                    txtTlf1.Text = persona._movil1;
-                    txtTlf2.Text = persona._movil2;
+                    txtZonaPostal.Text = Convert.ToString(persona._zonaPostal);
+                    txtTlf1.Text = Convert.ToString(persona._telf1);
+                    txtTlf2.Text = Convert.ToString(persona._telf2);
                 }
                 else
                 {
@@ -56,22 +53,22 @@ namespace ProdeinWebApp.Views.Persona
             {
                 PersonaController personaCtrl = new PersonaController();
                 bool respuesta = false;
-                Personas persona = personaCtrl.verificarPersona(txtIdentificacion.Text);
-                if (!string.IsNullOrEmpty(persona._identificacion))
+                Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtIdentificacion.Text));
+                if (!string.IsNullOrEmpty(persona._nombre))
                 {
-                    persona._tipo = txtTipo.Text;
-                    persona._identificacion = txtIdentificacion.Text;
+                    persona._cedulaRif = dplCedula.Text;
+                    persona._numeroCedulaRif = Convert.ToInt32(txtIdentificacion.Text);
                     persona._nombre = txtNombre.Text;
-                    persona._estadoCivil = txtEstCivil.Text;
-                    persona._edad = txtEdad.Text;
+                    persona._estadoCivil = dplEstadoCivil.Text;
+                    persona._edad = Convert.ToInt32(txtEdad.Text);
                     persona._profesion = txtProfesion.Text;
                     persona._correo = txtCorreo.Text;
                     persona._direccion = txtDireccion.Text;
-                    persona._pais = txtPais.Text;
+                    persona._pais = dplPais.Text;
                     persona._estado = txtEstado.Text;
-                    persona._zonaPostal = txtZonaPostal.Text;
-                    persona._movil1 = txtTlf1.Text;
-                    persona._movil2 = txtTlf2.Text;
+                    persona._zonaPostal = Convert.ToInt32(txtZonaPostal.Text);
+                    persona._telf1 = Convert.ToInt32(txtTlf1.Text);
+                    persona._telf2 = Convert.ToInt32(txtTlf2.Text);
                     persona._sexo = dplSexo.SelectedValue;
                     respuesta = personaCtrl.modificarPersona(persona);
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona se ha Modificado');", true);

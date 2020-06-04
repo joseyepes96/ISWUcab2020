@@ -42,22 +42,22 @@ namespace ProdeinWebApp.Views.Persona
         protected global::System.Web.UI.WebControls.Button btnBuscar;
 
         /// <summary>
-        /// Control lblTipoDocumento.
+        /// Control lblCedulaRif.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTipoDocumento;
+        protected global::System.Web.UI.WebControls.Label lblCedulaRif;
 
         /// <summary>
-        /// Control txtTipo.
+        /// Control dplCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTipo;
+        protected global::System.Web.UI.WebControls.DropDownList dplCedula;
 
         /// <summary>
         /// Control lblIdentificacion.
@@ -114,22 +114,22 @@ namespace ProdeinWebApp.Views.Persona
         protected global::System.Web.UI.WebControls.DropDownList dplSexo;
 
         /// <summary>
-        /// Control lblEstadoCivil.
+        /// Control Label3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEstadoCivil;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
-        /// Control txtEstCivil.
+        /// Control dplEstadoCivil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEstCivil;
+        protected global::System.Web.UI.WebControls.DropDownList dplEstadoCivil;
 
         /// <summary>
         /// Control lblEdad.
@@ -204,22 +204,22 @@ namespace ProdeinWebApp.Views.Persona
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
 
         /// <summary>
-        /// Control lblPais.
+        /// Control Label7.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPais;
+        protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
-        /// Control txtPais.
+        /// Control dplPais.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPais;
+        protected global::System.Web.UI.WebControls.DropDownList dplPais;
 
         /// <summary>
         /// Control lblEstado.

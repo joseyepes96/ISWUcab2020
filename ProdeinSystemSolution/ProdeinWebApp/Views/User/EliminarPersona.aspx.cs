@@ -22,8 +22,8 @@ namespace ProdeinWebApp.Views.Persona
             {
                 bool respuesta = false;
                 PersonaController personaCtrl = new PersonaController();
-                Personas persona = personaCtrl.verificarPersona(txtIdentificacion.Text);
-                if (!string.IsNullOrEmpty(persona._identificacion))
+                Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtIdentificacion.Text));
+                if (!string.IsNullOrEmpty(persona._nombre))
                 {
                         respuesta = personaCtrl.eliminarPersona(persona);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario ha sido eliminado');", true);

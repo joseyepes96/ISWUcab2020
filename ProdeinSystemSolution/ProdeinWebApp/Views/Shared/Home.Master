@@ -165,22 +165,15 @@
                                     <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2"><i class="fas fa-users"></i>Personas</a>
                                     <div id="submenu-2" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
-                                            <li class="nav-item">
-<<<<<<< HEAD
-                                                <a class="nav-link" href="">Agregar<span class="badge badge-secondary">New</span></a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="">Consultar<span class="badge badge-secondary">New</span></a>
-=======
+                                            <li class="nav-item"> 
                                                 <a class="nav-link" href="../User/Persona/RegistrarPersona.aspx">Agregar</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="../User/Persona/ConsultarPersonas.aspx">Consultar <span class="badge badge-secondary">New</span></a>
->>>>>>> master
                                             </li>
                                             
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../User/ModificarPersona">Modificar<span class="badge badge-secondary">New</span></a>
+                                                <a class="nav-link" href="../User/ModificarPersona.aspx">Modificar<span class="badge badge-secondary">New</span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="../User/EliminarPersona.aspx">Eliminar<span class="badge badge-secondary">New</span></a>

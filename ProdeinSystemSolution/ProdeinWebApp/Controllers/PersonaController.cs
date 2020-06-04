@@ -9,12 +9,12 @@ namespace ProdeinWebApp.Controllers
 {
     public class PersonaController
     {
-        public Personas verificarPersona(String identificacion)
+        public Personas verificarPersona(int identificacion)
         {
             var persona = new Personas();
-            persona._identificacion = identificacion;
+            persona._numeroCedulaRif = identificacion;
             PersonaCommand uc = new PersonaCommand();
-            Personas persona1 = uc.consultarPersona(persona);
+            Personas persona1 = uc.consultarPerson(persona);
             return persona1;
         }
         public bool eliminarPersona(Personas persona)

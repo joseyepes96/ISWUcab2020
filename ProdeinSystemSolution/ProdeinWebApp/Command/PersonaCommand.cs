@@ -8,21 +8,7 @@ namespace ProdeinWebApp.Command
 {
     public class PersonaCommand
     {
-<<<<<<< HEAD
-        public Personas consultarPersona(Personas persona)
-=======
-        // colocar las operaciones de validaciones necesarias o
-        // cualquier otra operacion(Logica)
-
-        // consultar en la base de datos y se coloca la logica
-
-        /// <summary>
-        /// Consulta a las personas por cedula
-        /// </summary>
-        /// <param name="user"></param>
-        /// <returns></returns>
-        public Personas consultarPersona(Personas person)
->>>>>>> master
+        public Personas consultarPerson(Personas persona)
         {
             var respuesta = new Personas();
             try
@@ -30,15 +16,9 @@ namespace ProdeinWebApp.Command
                 var objUser = new Personas();
                 var conBD = new ConexionBD();
 
-<<<<<<< HEAD
-                if (persona._identificacion != "")
+                if (persona._numeroCedulaRif != 0)
                 {
-                    objUser = conBD.consultarPersona(persona._identificacion);
-=======
-                if (person._numeroCedulaRif != 0)
-                {
-                    objUser = conBD.consultarPersonaCedula(person._cedulaRif, person._numeroCedulaRif);
->>>>>>> master
+                    objUser = conBD.consultarPersona(persona._numeroCedulaRif);
                 }
 
                 respuesta = objUser;
@@ -49,7 +29,6 @@ namespace ProdeinWebApp.Command
             }
             return respuesta;
         }
-<<<<<<< HEAD
         public bool eliminarPersona(Personas persona)
         {
             bool respuesta = false;
@@ -57,7 +36,7 @@ namespace ProdeinWebApp.Command
             {
                 var objUser = new Personas();
                 var conBD = new ConexionBD();
-                respuesta = conBD.eliminarPersona(persona._identificacion);
+                respuesta = conBD.eliminarPersona(persona._numeroCedulaRif);
             }
             catch (Exception ex)
             {
@@ -67,7 +46,40 @@ namespace ProdeinWebApp.Command
 
         }
         public bool modificarPersona(Personas persona)
-=======
+        {
+            var respuesta = false;
+            try
+            {
+                var conBD = new ConexionBD();
+                respuesta = conBD.modificarPersona(persona);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo realizar la modificacion. " + ex);
+            }
+            return respuesta;
+        }
+        public Personas consultarPersona(Personas person)
+        {
+            var respuesta = new Personas();
+            try
+            {
+                var objUser = new Personas();
+                var conBD = new ConexionBD();
+
+                if (person._numeroCedulaRif != 0)
+                {
+                    objUser = conBD.consultarPersonaCedula(person._cedulaRif, person._numeroCedulaRif);
+                }
+
+                respuesta = objUser;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("No se pudo realizar la busqueda. " + ex);
+            }
+            return respuesta;
+        }
 
         /// <summary>
         /// Se realiza la consulta de usuarios 
@@ -93,19 +105,10 @@ namespace ProdeinWebApp.Command
         }
 
         public bool agregarPersona(Personas person)
->>>>>>> master
         {
             var respuesta = false;
             try
             {
-<<<<<<< HEAD
-                var conBD = new ConexionBD(); 
-                respuesta = conBD.modificarPersona(persona);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("No se pudo realizar la modificacion. " + ex);
-=======
                 var objUser = new Personas();
                 var conBD = new ConexionBD();
 
@@ -117,10 +120,10 @@ namespace ProdeinWebApp.Command
             catch (Exception ex)
             {
                 throw new Exception("No se pudo agregar. " + ex);
->>>>>>> master
             }
             return respuesta;
         }
 
     }
+
 }

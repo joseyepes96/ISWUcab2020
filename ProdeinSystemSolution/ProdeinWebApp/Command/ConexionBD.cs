@@ -193,92 +193,50 @@ namespace ProdeinWebApp.Command
             }
             return respuesta;
         }
-<<<<<<< HEAD
-       
-        public Personas consultarPersona(string identificacion)
+        public Personas consultarPersona(int cedula)
         {
             Personas userBD = new Personas();
-            MySqlConnection conexionBD = conectarBD(); 
-=======
-
-
-        /*******************************************************************************/
-        /// Personas
-        /// 
-
-        public Personas consultarPersonaCedula(string tipoDoc , int cedula)
-        {
-            Personas userBD = new Personas();
-            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
->>>>>>> master
+            MySqlConnection conexionBD = conectarBD();
             MySqlDataReader reader = null;
 
             try
             {
-<<<<<<< HEAD
-                string query = "SELECT * FROM `persona` WHERE `numero de cedula` = '" + identificacion + "';"; 
-                MySqlCommand comando = new MySqlCommand(query); 
-                comando.Connection = conexionBD; 
-                conexionBD.Open(); 
-                reader = comando.ExecuteReader(); 
+                string query = "SELECT * FROM `persona` WHERE `numeroCedula` = '" + cedula + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
 
-                while (reader.Read()) 
+                while (reader.Read())
                 {
-                    userBD._id = reader.GetInt32(0);
-                    userBD._tipo = reader.GetString(1);
-                    userBD._identificacion = reader.GetString(2);
-                    userBD._nombre = reader.GetString(3);
-                    userBD._sexo = reader.GetString(4);
-                    userBD._estadoCivil = reader.GetString(5);
-                    userBD._edad = reader.GetString(6);
-=======
-                string query = "SELECT * FROM Persona WHERE tipoDocumento  = '" + tipoDoc + "' and numeroCedula ='" + cedula + "';"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
-                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
-                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
-                conexionBD.Open(); //Abre la conexión
-                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
-
-                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
-                {
-                    //Almacena cada registro
-                   
                     userBD._id = reader.GetInt32(0);
                     userBD._cedulaRif = reader.GetString(1);
-                    userBD._numeroCedulaRif =  reader.GetInt32(2);
+                    userBD._numeroCedulaRif = reader.GetInt32(2);
                     userBD._nombre = reader.GetString(3);
                     userBD._sexo = reader.GetString(4);
                     userBD._estadoCivil = reader.GetString(5);
                     userBD._edad = reader.GetInt32(6);
->>>>>>> master
                     userBD._profesion = reader.GetString(7);
                     userBD._correo = reader.GetString(8);
                     userBD._direccion = reader.GetString(9);
                     userBD._pais = reader.GetString(10);
                     userBD._estado = reader.GetString(11);
-<<<<<<< HEAD
-                    userBD._zonaPostal = reader.GetString(12);
-                    userBD._movil1 = reader.GetString(13);
-                    userBD._movil2 = reader.GetString(14);
-=======
                     userBD._zonaPostal = reader.GetInt32(12);
                     userBD._telf1 = reader.GetInt32(13);
                     userBD._telf2 = reader.GetInt32(14);
-
->>>>>>> master
                 }
             }
             catch (MySqlException ex)
             {
-<<<<<<< HEAD
-                throw ex; 
+                throw ex;
             }
             finally
             {
-                conexionBD.Close(); 
+                conexionBD.Close();
             }
             return userBD;
         }
-        public bool eliminarPersona(String identificacion)
+        public bool eliminarPersona(int cedula)
         {
             Personas personaBD = new Personas();
             MySqlConnection conexionBD = conectarBD();
@@ -288,7 +246,7 @@ namespace ProdeinWebApp.Command
 
             try
             {
-                string query = "DELETE FROM `persona` WHERE `numero de cedula` = '" + identificacion + "';";
+                string query = "DELETE FROM `persona` WHERE `numeroCedula` = '" + cedula + "';";
                 MySqlCommand comando = new MySqlCommand(query);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
@@ -313,7 +271,7 @@ namespace ProdeinWebApp.Command
             bool respuesta = false;
             try
             {
-                string query = "UPDATE `persona` SET `tipo de documento`='"+persona._tipo +"',`numero de cedula`='"+persona._identificacion+"',`nombre o razon social`='"+persona._nombre+"',`sexo`='"+persona._sexo+"',`estado civil`='"+persona._estadoCivil+"',`edad`='"+persona._edad+"',`profesion`='"+persona._profesion+"',`correo`='"+persona._correo+"',`direccion`='"+persona._direccion+"',`pais`='"+persona._pais+"',`estados`='"+persona._estado+"',`zona postal`='"+persona._zonaPostal+"',`telefono 1`='"+persona._movil1+"',`telefono 2`='"+persona._movil2+"' WHERE `numero de cedula` ='"+persona._identificacion+"'";
+                string query = "UPDATE `persona` SET `tipoDocumento`='" + persona._cedulaRif + "',`numeroCedula`='" + persona._numeroCedulaRif + "',`nombreRazonsocial`='" + persona._nombre + "',`sexo`='" + persona._sexo + "',`estadoCivil`='" + persona._estadoCivil + "',`edad`='" + persona._edad + "',`profesion`='" + persona._profesion + "',`correo`='" + persona._correo + "',`direccion`='" + persona._direccion + "',`pais`='" + persona._pais + "',`estado`='" + persona._estado + "',`zonaPostal`='" + persona._zonaPostal + "',`telefono1`='" + persona._telf1 + "',`telefono2`='" + persona._telf2 + "' WHERE `numeroCedula` ='" + persona._numeroCedulaRif + "'";
                 MySqlCommand comando = new MySqlCommand(query);
                 comando.Connection = conexionBD;
                 conexionBD.Open();
@@ -327,7 +285,47 @@ namespace ProdeinWebApp.Command
             finally
             {
                 conexionBD.Close();
-=======
+            }
+            return respuesta;
+        }
+        public Personas consultarPersonaCedula(string tipoDoc, int cedula)
+        {
+            Personas userBD = new Personas();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM Persona WHERE tipoDocumento  = '" + tipoDoc + "' and numeroCedula ='" + cedula + "';"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+
+                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
+                {
+                    //Almacena cada registro
+
+                    userBD._id = reader.GetInt32(0);
+                    userBD._cedulaRif = reader.GetString(1);
+                    userBD._numeroCedulaRif = reader.GetInt32(2);
+                    userBD._nombre = reader.GetString(3);
+                    userBD._sexo = reader.GetString(4);
+                    userBD._estadoCivil = reader.GetString(5);
+                    userBD._edad = reader.GetInt32(6);
+                    userBD._profesion = reader.GetString(7);
+                    userBD._correo = reader.GetString(8);
+                    userBD._direccion = reader.GetString(9);
+                    userBD._pais = reader.GetString(10);
+                    userBD._estado = reader.GetString(11);
+                    userBD._zonaPostal = reader.GetInt32(12);
+                    userBD._telf1 = reader.GetInt32(13);
+                    userBD._telf2 = reader.GetInt32(14);
+
+                }
+            }
+            catch (MySqlException ex)
+            {
                 throw ex; //Si existe un error aquí muestra el mensaje
             }
             finally
@@ -402,7 +400,7 @@ namespace ProdeinWebApp.Command
             Personas userBD = new Personas();
             MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
             MySqlDataReader reader = null;
-            bool respuesta = false; 
+            bool respuesta = false;
 
             try
             {
@@ -423,9 +421,9 @@ namespace ProdeinWebApp.Command
             finally
             {
                 conexionBD.Close(); //Cierra la conexión a MySQL
->>>>>>> master
             }
             return respuesta;
         }
+
     }
 }

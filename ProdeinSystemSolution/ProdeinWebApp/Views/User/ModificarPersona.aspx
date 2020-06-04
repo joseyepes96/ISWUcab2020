@@ -15,11 +15,16 @@
                         </div>
                     </div>
                         <div class="form-group">
-                            <asp:Label ID="lblTipoDocumento" for="txtTipo" runat="server" Text="Tipo"></asp:Label>
-                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
-                                <asp:TextBox ID="txtTipo" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                     placeholder="Tipo de Documento" autocomplete="off" class="form-control">
-                                </asp:TextBox>
+                            <asp:Label ID="lblCedulaRif" runat="server" Text="Cédula o Rif"></asp:Label>
+                           <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
+                                <asp:DropDownList ID="dplCedula" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
+                                    <asp:ListItem>V</asp:ListItem>
+                                    <asp:ListItem>E</asp:ListItem>
+                                    <asp:ListItem>P</asp:ListItem>
+                                    <asp:ListItem>J</asp:ListItem>
+                                    <asp:ListItem>G</asp:ListItem>
+                                </asp:DropDownList>
+                          
                             </div>
                         </div>
                     <div class="form-group">
@@ -41,16 +46,19 @@
                             <asp:Label ID="lblSexo" runat="server" Text="Sexo"></asp:Label>
                     <br />
                                 <asp:DropDownList ID="dplSexo" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
-                                    <asp:ListItem>Masculino</asp:ListItem>
-                                    <asp:ListItem>Femenino</asp:ListItem>
+                                    <asp:ListItem>M</asp:ListItem>
+                                    <asp:ListItem>F</asp:ListItem>
                                 </asp:DropDownList>
                     <br />
                     <div class="form-group">
-                            <asp:Label ID="lblEstadoCivil" for="txtEstCivil" runat="server" Text="Estado Civil"></asp:Label>
-                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
-                                <asp:TextBox ID="txtEstCivil" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                      autocomplete="off" class="form-control">
-                                </asp:TextBox>
+                            <asp:Label ID="Label3" runat="server" Text="Estado Civil"></asp:Label>
+                           <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
+                                <asp:DropDownList ID="dplEstadoCivil" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
+                                    <asp:ListItem>Soltero</asp:ListItem>
+                                    <asp:ListItem>Casado</asp:ListItem>
+                                    <asp:ListItem>Viudo</asp:ListItem>
+                                    <asp:ListItem>Divorciado</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                     <div class="form-group">
@@ -86,11 +94,17 @@
                             </div>
                         </div>
                     <div class="form-group">
-                            <asp:Label ID="lblPais" for="txtPais" runat="server" Text="Pais"></asp:Label>
-                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
-                                <asp:TextBox ID="txtPais" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                      autocomplete="off" class="form-control">
-                                </asp:TextBox>
+                            <asp:Label ID="Label7" runat="server" Text="País"></asp:Label>
+                           <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
+                                <asp:DropDownList ID="dplPais" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
+                                    <asp:ListItem>Bolivia</asp:ListItem>
+                                    <asp:ListItem>Colombia</asp:ListItem>
+                                    <asp:ListItem>Ecuador</asp:ListItem>
+                                    <asp:ListItem>Estados Unidos</asp:ListItem>
+                                    <asp:ListItem>España</asp:ListItem>
+                                    <asp:ListItem>Perú</asp:ListItem>
+                                    <asp:ListItem>Venezuela</asp:ListItem>
+                                </asp:DropDownList>
                             </div>
                         </div>
                     <div class="form-group">
