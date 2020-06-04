@@ -12,7 +12,7 @@
                             <asp:Label ID="lblNombreUsuario" for="txtNombre" runat="server" Text="Nombre Apellido"></asp:Label>
                             <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
                                 <asp:TextBox ID="txtNombre" runat="server" type="text" name="name" data-parsley-trigger="change" required="true" 
-                                     placeholder="Ingrese su NombreApellido para el sistema" autocomplete="off" class="form-control">
+                                     placeholder="Ingrese su NombreApellido para el sistema" autocomplete="off" class="form-control" OnTextChanged="txtNombre_TextChanged">
                                 </asp:TextBox>
                             </div>
                         </div>

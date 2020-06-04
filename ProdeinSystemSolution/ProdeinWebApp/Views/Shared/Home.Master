@@ -166,11 +166,19 @@
                                     <div id="submenu-2" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
+<<<<<<< HEAD
                                                 <a class="nav-link" href="">Agregar<span class="badge badge-secondary">New</span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="">Consultar<span class="badge badge-secondary">New</span></a>
+=======
+                                                <a class="nav-link" href="../User/Persona/RegistrarPersona.aspx">Agregar</a>
                                             </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../User/Persona/ConsultarPersonas.aspx">Consultar <span class="badge badge-secondary">New</span></a>
+>>>>>>> master
+                                            </li>
+                                            
                                             <li class="nav-item">
                                                 <a class="nav-link" href="../User/ModificarPersona">Modificar<span class="badge badge-secondary">New</span></a>
                                             </li>
