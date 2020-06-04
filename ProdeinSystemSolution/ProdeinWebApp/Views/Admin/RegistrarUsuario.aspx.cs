@@ -66,5 +66,10 @@ namespace ProdeinWebApp.Views.Admin
             }
             Response.Redirect("ConsultasUsuario.aspx", false);
         }
+
+        protected void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
