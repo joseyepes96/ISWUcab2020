@@ -30,7 +30,7 @@ namespace ProdeinWebApp.Views.Admin
                     usuario._rol = txtRol.Text;
                     usuario._permisos = dplPermisos.SelectedValue;
                     respuesta = userCtrl.modificarUsuario(usuario);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario ha sido modificado');", true);
                 }
                 else
                 {
@@ -55,7 +55,6 @@ namespace ProdeinWebApp.Views.Admin
             try
             {
                 UsuarioController userCtrl = new UsuarioController();
-                bool respuesta = false;
                 Usuario usuario = userCtrl.verificarUsuario(txtBuscar.Text);
                 if (!string.IsNullOrEmpty(usuario._nombre))
                 {

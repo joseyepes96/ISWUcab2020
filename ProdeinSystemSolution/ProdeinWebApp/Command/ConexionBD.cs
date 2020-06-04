@@ -193,5 +193,101 @@ namespace ProdeinWebApp.Command
             }
             return respuesta;
         }
+       
+        public Personas consultarPersona(string identificacion)
+        {
+            Personas userBD = new Personas();
+            MySqlConnection conexionBD = conectarBD(); 
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM `persona` WHERE `numero de cedula` = '" + identificacion + "';"; 
+                MySqlCommand comando = new MySqlCommand(query); 
+                comando.Connection = conexionBD; 
+                conexionBD.Open(); 
+                reader = comando.ExecuteReader(); 
+
+                while (reader.Read()) 
+                {
+                    userBD._id = reader.GetInt32(0);
+                    userBD._tipo = reader.GetString(1);
+                    userBD._identificacion = reader.GetString(2);
+                    userBD._nombre = reader.GetString(3);
+                    userBD._sexo = reader.GetString(4);
+                    userBD._estadoCivil = reader.GetString(5);
+                    userBD._edad = reader.GetString(6);
+                    userBD._profesion = reader.GetString(7);
+                    userBD._correo = reader.GetString(8);
+                    userBD._direccion = reader.GetString(9);
+                    userBD._pais = reader.GetString(10);
+                    userBD._estado = reader.GetString(11);
+                    userBD._zonaPostal = reader.GetString(12);
+                    userBD._movil1 = reader.GetString(13);
+                    userBD._movil2 = reader.GetString(14);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; 
+            }
+            finally
+            {
+                conexionBD.Close(); 
+            }
+            return userBD;
+        }
+        public bool eliminarPersona(String identificacion)
+        {
+            Personas personaBD = new Personas();
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+
+
+            try
+            {
+                string query = "DELETE FROM `persona` WHERE `numero de cedula` = '" + identificacion + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
+        public bool modificarPersona(Personas persona)
+        {
+            Personas personaBD = persona;
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+            try
+            {
+                string query = "UPDATE `persona` SET `tipo de documento`='"+persona._tipo +"',`numero de cedula`='"+persona._identificacion+"',`nombre o razon social`='"+persona._nombre+"',`sexo`='"+persona._sexo+"',`estado civil`='"+persona._estadoCivil+"',`edad`='"+persona._edad+"',`profesion`='"+persona._profesion+"',`correo`='"+persona._correo+"',`direccion`='"+persona._direccion+"',`pais`='"+persona._pais+"',`estados`='"+persona._estado+"',`zona postal`='"+persona._zonaPostal+"',`telefono 1`='"+persona._movil1+"',`telefono 2`='"+persona._movil2+"' WHERE `tipo de documento` ='"+persona._identificacion+"'";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
     }
 }

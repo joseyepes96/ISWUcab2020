@@ -584,6 +584,8 @@
     <Content Include="Views\Admin\RegistrarUsuario.aspx" />
     <Content Include="Views\Error.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\User\EliminarPersona.aspx" />
+    <Content Include="Views\User\ModificarPersona.aspx" />
     <Content Include="Views\User\Home.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -601,7 +603,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Persona.cs" />
+    <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
@@ -660,6 +662,20 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\User\EliminarPersona.aspx.cs">
+      <DependentUpon>EliminarPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\EliminarPersona.aspx.designer.cs">
+      <DependentUpon>EliminarPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\ModificarPersona.aspx.cs">
+      <DependentUpon>ModificarPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\ModificarPersona.aspx.designer.cs">
+      <DependentUpon>ModificarPersona.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Shared\Admin.Master.cs">
       <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -684,7 +700,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Persona\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\assets\vendor\fonts\circular-std\CircularStd-Black.woff" />
