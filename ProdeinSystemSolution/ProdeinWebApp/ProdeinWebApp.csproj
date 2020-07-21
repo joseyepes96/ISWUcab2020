@@ -584,11 +584,19 @@
     <Content Include="Views\Admin\RegistrarUsuario.aspx" />
     <Content Include="Views\Error.aspx" />
     <Content Include="Views\Login.aspx" />
+    <Content Include="Views\User\ConsultarDonaciones.aspx" />
+    <Content Include="Views\User\EliminarDonaciones.aspx" />
+    <Content Include="Views\User\ModificarDonaciones.aspx" />
+    <Content Include="Views\User\RegistrarDonaciones.aspx" />
+    <Content Include="Views\User\ConsultarEmpresa.aspx" />
+    <Content Include="Views\User\EliminarEmpresa.aspx" />
+    <Content Include="Views\User\ModificarEmpresa.aspx" />
+    <Content Include="Views\User\RegistrarEmpresa.aspx" />
     <Content Include="Views\User\EliminarPersona.aspx" />
     <Content Include="Views\User\ModificarPersona.aspx" />
     <Content Include="Views\User\Home.aspx" />
-    <Content Include="Views\User\Persona\ConsultarPersonas.aspx" />
-    <Content Include="Views\User\Persona\RegistrarPersona.aspx" />
+    <Content Include="Views\User\ConsultarPersonas.aspx" />
+    <Content Include="Views\User\RegistrarPersona.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Views\web.config" />
@@ -597,14 +605,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Command\ConexionBD.cs" />
+    <Compile Include="Command\DonacionesCommand.cs" />
+    <Compile Include="Command\EmpresasCommand.cs" />
     <Compile Include="Command\PersonaCommand.cs" />
     <Compile Include="Command\UsuarioCommand.cs" />
+    <Compile Include="Controllers\DonacionesController.cs" />
+    <Compile Include="Controllers\EmpresasController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Donaciones.cs" />
+    <Compile Include="Models\Empresas.cs" />
     <Compile Include="Models\Personas.cs" />
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -664,6 +678,62 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\User\ConsultarDonaciones.aspx.cs">
+      <DependentUpon>ConsultarDonaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\ConsultarDonaciones.aspx.designer.cs">
+      <DependentUpon>ConsultarDonaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\EliminarDonaciones.aspx.cs">
+      <DependentUpon>EliminarDonaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\EliminarDonaciones.aspx.designer.cs">
+      <DependentUpon>EliminarDonaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\ModificarDonaciones.aspx.cs">
+      <DependentUpon>ModificarDonaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\ModificarDonaciones.aspx.designer.cs">
+      <DependentUpon>ModificarDonaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\RegistrarDonaciones.aspx.cs">
+      <DependentUpon>RegistrarDonaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\RegistrarDonaciones.aspx.designer.cs">
+      <DependentUpon>RegistrarDonaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\ConsultarEmpresa.aspx.cs">
+      <DependentUpon>ConsultarEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\ConsultarEmpresa.aspx.designer.cs">
+      <DependentUpon>ConsultarEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\EliminarEmpresa.aspx.cs">
+      <DependentUpon>EliminarEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\EliminarEmpresa.aspx.designer.cs">
+      <DependentUpon>EliminarEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\ModificarEmpresa.aspx.cs">
+      <DependentUpon>ModificarEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\ModificarEmpresa.aspx.designer.cs">
+      <DependentUpon>ModificarEmpresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\User\RegistrarEmpresa.aspx.cs">
+      <DependentUpon>RegistrarEmpresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\User\RegistrarEmpresa.aspx.designer.cs">
+      <DependentUpon>RegistrarEmpresa.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\User\EliminarPersona.aspx.cs">
       <DependentUpon>EliminarPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -699,18 +769,18 @@
     <Compile Include="Views\User\Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\Persona\ConsultarPersonas.aspx.cs">
+    <Compile Include="Views\User\ConsultarPersonas.aspx.cs">
       <DependentUpon>ConsultarPersonas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\User\Persona\ConsultarPersonas.aspx.designer.cs">
+    <Compile Include="Views\User\ConsultarPersonas.aspx.designer.cs">
       <DependentUpon>ConsultarPersonas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\User\Persona\RegistrarPersona.aspx.cs">
+    <Compile Include="Views\User\RegistrarPersona.aspx.cs">
       <DependentUpon>RegistrarPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\User\Persona\RegistrarPersona.aspx.designer.cs">
+    <Compile Include="Views\User\RegistrarPersona.aspx.designer.cs">
       <DependentUpon>RegistrarPersona.aspx</DependentUpon>
     </Compile>
   </ItemGroup>

@@ -166,69 +166,59 @@
                                     <div id="submenu-2" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
                                             <li class="nav-item"> 
-                                                <a class="nav-link" href="../User/Persona/RegistrarPersona.aspx">Agregar</a>
+                                                <a class="nav-link" href="../User/RegistrarPersona.aspx">Agregar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../User/Persona/ConsultarPersonas.aspx">Consultar <span class="badge badge-secondary">New</span></a>
+                                                <a class="nav-link" href="../User/ConsultarPersonas.aspx">Consultar <span class="badge badge-secondary">New</span></a>
                                             </li>
                                             
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../User/Persona/ModificarPersona.aspx">Modificar<span class="badge badge-secondary">New</span></a>
+                                                <a class="nav-link" href="../User/ModificarPersona.aspx">Modificar<span class="badge badge-secondary">New</span></a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../User/Persona/EliminarPersona.aspx">Eliminar<span class="badge badge-secondary">New</span></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-gift"></i>Donaciones</a>
-                                    <div id="submenu-3" class="collapse submenu" style="">
-                                        <ul class="nav flex-column">
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-c3.html">C3 Charts</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-chartist.html">Chartist Charts</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-charts.html">Chart</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-morris.html">Morris</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-sparkline.html">Sparkline</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/chart-gauge.html">Guage</a>
+                                                <a class="nav-link" href="../User/EliminarPersona.aspx">Eliminar<span class="badge badge-secondary">New</span></a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
                                 <li class="nav-item ">
-                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa fa-donate"></i>Donación Periódica</a>
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-4" aria-controls="submenu-4"><i class="fas fa fa-donate"></i>Empresas</a>
                                     <div id="submenu-4" class="collapse submenu" style="">
                                         <ul class="nav flex-column">
                                             <li class="nav-item">
-                                                <a class="nav-link" href="pages/form-elements.html">Form Elements</a>
+                                                <a class="nav-link" href="../User/RegistrarEmpresa.aspx">Agregar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="pages/form-validation.html">Parsely Validations</a>
+                                                <a class="nav-link" href="../User/ConsultarEmpresa.aspx">Consultas</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="pages/multiselect.html">Multiselect</a>
+                                                <a class="nav-link" href="../User/ModificarEmpresa">Modificar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="pages/datepicker.html">Date Picker</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" href="pages/bootstrap-select.html">Bootstrap Select</a>
+                                                <a class="nav-link" href="../User/EliminarEmpresa">Eliminar</a>
                                             </li>
                                         </ul>
                                     </div>
                                 </li>
-                
+                                 <li class="nav-item">
+                                    <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fas fa-gift"></i>Donaciones</a>
+                                    <div id="submenu-3" class="collapse submenu" style="">
+                                        <ul class="nav flex-column">
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../User/RegistrarDonaciones.aspx">Agregar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../User/ConsultarDonaciones.aspx">Consultas</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../User/ModificarDonaciones">Modificar</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="../User/EliminarDonaciones">Eliminar</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                             </ul>
                         </div>
                     </nav>
