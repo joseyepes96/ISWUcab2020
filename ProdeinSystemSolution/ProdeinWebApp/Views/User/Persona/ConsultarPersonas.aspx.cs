@@ -89,9 +89,17 @@ namespace ProdeinWebApp.Views.User.Persona
                     tabla += "<td>" + item._telf2 + "</td>";
                     tabla += "</tr>";
                 }
-               
+                tabla += "</tbody>";
+             
+                tabla += "</table>";
             }
+        
             return tabla;
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("../Home.aspx", false);
         }
     }
 }

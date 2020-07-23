@@ -17,6 +17,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">                            
+                            <div style="margin-left:auto; margin-right:auto;">
+                                <p class="text-right">
+                                    <asp:Button ID="btnVolver" runat="server" CssClass="btn btn-space btn-secondary" Text="Volver" OnClick="btnCancelar_Click" CausesValidation="False" />                                  
+                                </p>
+                            </div>
+                        </div>
             </div>
             <!-- ============================================================== -->
             <!-- end data table  -->
