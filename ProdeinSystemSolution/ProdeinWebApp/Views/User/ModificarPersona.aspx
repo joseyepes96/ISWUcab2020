@@ -6,7 +6,7 @@
                 <h3 class="card-header">Modificar Persona</h3>
                 <div class="card-body">
                     <div class="form-group">
-                        <asp:Label ID="LabelBuscar" for="txtBuscar" runat="server" Text="Buscar Numero de identificacion"></asp:Label>
+                        <asp:Label ID="LabelBuscar" for="txtBuscar" runat="server" Text="Buscar por Numero de identificacion"></asp:Label>
                         <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span> 
                         <asp:TextBox ID="txtBuscar" runat="server" type="text" name="name" data-parsley-trigger="change" 
                                      placeholder="Buscar" autocomplete="off" class="form-control">

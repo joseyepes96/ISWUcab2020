@@ -37,13 +37,13 @@ namespace ProdeinWebApp.Views.Persona
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona no existe');", true);
                 }
             }
             catch (Exception ex)
             {
-                Session["mensajeError"] = "Ha ocurrido un error al buscar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al buscar la persona. " + ex;
+                Response.Redirect("Error.aspx", false);
             }
         }
 
@@ -75,13 +75,13 @@ namespace ProdeinWebApp.Views.Persona
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona no existe');", true);
                 }
             }
             catch (Exception ex)
             {
-                Session["mensajeError"] = "Ha ocurrido un error al modificar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al modificar la persona. " + ex;
+                Response.Redirect("Error.aspx", false);
             }
             Response.Redirect("Home.aspx", false);
         }

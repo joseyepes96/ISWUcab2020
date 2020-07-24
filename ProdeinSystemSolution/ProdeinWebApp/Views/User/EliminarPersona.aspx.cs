@@ -26,19 +26,19 @@ namespace ProdeinWebApp.Views.Persona
                 if (!string.IsNullOrEmpty(persona._nombre))
                 {
                         respuesta = personaCtrl.eliminarPersona(persona);
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario ha sido eliminado');", true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('la persona ha sido eliminada');", true);
                         Response.Redirect("Home.aspx", false);
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no existe');", true);
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona no existe');", true);
                 }
 
             }
             catch (Exception ex)
             {
-                Session["mensajeError"] = "Ha ocurrido un error al eliminar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al eliminar la persona. " + ex;
+                Response.Redirect("Error.aspx", false);
             }
         }
 

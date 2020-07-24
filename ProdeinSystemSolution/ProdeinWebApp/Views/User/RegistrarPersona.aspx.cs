@@ -29,7 +29,7 @@ namespace ProdeinWebApp.Views.User.Persona
 
                 if (!string.IsNullOrEmpty(loginPersona._nombre)) // si existe el usuario
                 {
-                    Response.Write("<script language=javascript>alert('El usuario que ha ingresado ya esta registrado');</script>");
+                    Response.Write("<script language=javascript>alert('La persona que ha ingresado ya esta registrado');</script>");
 
                 }
                 else
@@ -68,8 +68,8 @@ namespace ProdeinWebApp.Views.User.Persona
             catch (Exception ex)
             {
 
-                Session["mensajeError"] = "Ha ocurrido un error al registrar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al registrar la persona. " + ex;
+                Response.Redirect("Error.aspx", false);
             }
         
         }
@@ -77,7 +77,7 @@ namespace ProdeinWebApp.Views.User.Persona
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Home.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

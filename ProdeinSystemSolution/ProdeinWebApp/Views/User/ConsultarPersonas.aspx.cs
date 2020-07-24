@@ -21,17 +21,6 @@ namespace ProdeinWebApp.Views.User.Persona
         {
             if (!IsPostBack)
             {
-                //DataTable dt = new DataTable();
-                //dt.Columns.AddRange(new DataColumn[3] { new DataColumn("Id", typeof(int)),
-                //            new DataColumn("Nombre", typeof(string)),
-                //            new DataColumn("Ciudad",typeof(string)) });
-                //dt.Rows.Add(1, "Jonathan Orozco", "Monterrey");
-                //dt.Rows.Add(2, "Jesus Corona", "México");
-                //dt.Rows.Add(3, "Cirilo Zaucedo", "Tijuana");
-                //dt.Rows.Add(4, "Humberto Suazo", "Chile");
-                //GridView1.DataSource = dt;
-                //GridView1.DataBind();
-
                 listaPersonas = userCtrl.consultarPersona();
                 // tabla de html
                 listaPersonaTabla.InnerHtml = tabla = mostrarTabla(listaPersonas);
@@ -99,7 +88,7 @@ namespace ProdeinWebApp.Views.User.Persona
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Home.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
     }
 }

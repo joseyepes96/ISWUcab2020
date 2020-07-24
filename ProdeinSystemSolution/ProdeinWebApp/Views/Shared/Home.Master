@@ -189,7 +189,7 @@
                                                 <a class="nav-link" href="../User/RegistrarEmpresa.aspx">Agregar</a>
                                             </li>
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../User/ConsultarEmpresa.aspx">Consultas</a>
+                                                <a class="nav-link" href="../User/ConsultarEmpresa.aspx">Consultar</a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="../User/ModificarEmpresa">Modificar</a>

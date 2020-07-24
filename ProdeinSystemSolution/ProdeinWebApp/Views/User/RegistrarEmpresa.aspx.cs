@@ -18,7 +18,7 @@ namespace ProdeinWebApp.Views.User.Empresa
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            Response.Redirect("../Home.aspx", false);
+            Response.Redirect("Home.aspx", false);
         }
 
         protected void btnRegistrar_Click(object sender, EventArgs e)
