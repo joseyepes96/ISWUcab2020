@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProdeinWebApp.Views.Persona
-{
-
-
-    public partial class EliminarPersona
-    {
-
+namespace ProdeinWebApp.Views.Persona {
+    
+    
+    public partial class EliminarPersona {
+        
         /// <summary>
         /// Control lblIdentificacionPersona.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdentificacionPersona;
-
+        
         /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
@@ -31,16 +29,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdentificacion;
-
-        /// <summary>
-        /// Control btnEliminar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnEliminar;
-
+        
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -49,5 +38,14 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control btnEliminar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEliminar;
     }
 }

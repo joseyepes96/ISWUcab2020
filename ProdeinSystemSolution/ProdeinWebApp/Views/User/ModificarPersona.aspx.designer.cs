@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProdeinWebApp.Views.Persona
-{
-
-
-    public partial class ModificarPersona
-    {
-
+namespace ProdeinWebApp.Views.Persona {
+    
+    
+    public partial class ModificarPersona {
+        
         /// <summary>
         /// Control LabelBuscar.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelBuscar;
-
+        
         /// <summary>
         /// Control txtBuscar.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuscar;
-
+        
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-
+        
         /// <summary>
         /// Control lblCedulaRif.
         /// </summary>
@@ -49,7 +47,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCedulaRif;
-
+        
         /// <summary>
         /// Control dplCedula.
         /// </summary>
@@ -58,7 +56,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplCedula;
-
+        
         /// <summary>
         /// Control lblIdentificacion.
         /// </summary>
@@ -67,7 +65,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdentificacion;
-
+        
         /// <summary>
         /// Control txtIdentificacion.
         /// </summary>
@@ -76,7 +74,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdentificacion;
-
+        
         /// <summary>
         /// Control lblNombre.
         /// </summary>
@@ -85,7 +83,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombre;
-
+        
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -94,7 +92,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-
+        
         /// <summary>
         /// Control lblSexo.
         /// </summary>
@@ -103,7 +101,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSexo;
-
+        
         /// <summary>
         /// Control dplSexo.
         /// </summary>
@@ -112,7 +110,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplSexo;
-
+        
         /// <summary>
         /// Control Label3.
         /// </summary>
@@ -121,7 +119,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
-
+        
         /// <summary>
         /// Control dplEstadoCivil.
         /// </summary>
@@ -130,7 +128,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplEstadoCivil;
-
+        
         /// <summary>
         /// Control lblEdad.
         /// </summary>
@@ -139,7 +137,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEdad;
-
+        
         /// <summary>
         /// Control txtEdad.
         /// </summary>
@@ -148,7 +146,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEdad;
-
+        
         /// <summary>
         /// Control lblProfesion.
         /// </summary>
@@ -157,7 +155,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProfesion;
-
+        
         /// <summary>
         /// Control txtProfesion.
         /// </summary>
@@ -166,7 +164,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtProfesion;
-
+        
         /// <summary>
         /// Control lblCorreo.
         /// </summary>
@@ -175,7 +173,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblCorreo;
-
+        
         /// <summary>
         /// Control txtCorreo.
         /// </summary>
@@ -184,7 +182,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
-
+        
         /// <summary>
         /// Control lblDireccion.
         /// </summary>
@@ -193,7 +191,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDireccion;
-
+        
         /// <summary>
         /// Control txtDireccion.
         /// </summary>
@@ -202,7 +200,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-
+        
         /// <summary>
         /// Control Label7.
         /// </summary>
@@ -211,7 +209,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label7;
-
+        
         /// <summary>
         /// Control dplPais.
         /// </summary>
@@ -220,7 +218,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplPais;
-
+        
         /// <summary>
         /// Control lblEstado.
         /// </summary>
@@ -229,7 +227,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblEstado;
-
+        
         /// <summary>
         /// Control txtEstado.
         /// </summary>
@@ -238,7 +236,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEstado;
-
+        
         /// <summary>
         /// Control lblZonaPostal.
         /// </summary>
@@ -247,7 +245,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblZonaPostal;
-
+        
         /// <summary>
         /// Control txtZonaPostal.
         /// </summary>
@@ -256,7 +254,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtZonaPostal;
-
+        
         /// <summary>
         /// Control lblTlf1.
         /// </summary>
@@ -265,7 +263,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTlf1;
-
+        
         /// <summary>
         /// Control txtTlf1.
         /// </summary>
@@ -274,7 +272,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTlf1;
-
+        
         /// <summary>
         /// Control lblTlf2.
         /// </summary>
@@ -283,7 +281,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTlf2;
-
+        
         /// <summary>
         /// Control txtTlf2.
         /// </summary>
@@ -292,16 +290,7 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTlf2;
-
-        /// <summary>
-        /// Control btnModificar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
-
+        
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -310,5 +299,14 @@ namespace ProdeinWebApp.Views.Persona
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control btnModificar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificar;
     }
 }

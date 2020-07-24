@@ -173,7 +173,7 @@
                                             </li>
                                             
                                             <li class="nav-item">
-                                                <a class="nav-link" href="../ModificarPersona.aspx">Modificar<span class="badge badge-secondary">New</span></a>
+                                                <a class="nav-link" href="../User/ModificarPersona.aspx">Modificar<span class="badge badge-secondary">New</span></a>
                                             </li>
                                             <li class="nav-item">
                                                 <a class="nav-link" href="../User/EliminarPersona.aspx">Eliminar<span class="badge badge-secondary">New</span></a>

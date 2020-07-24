@@ -18,24 +18,23 @@
                         </div>     
                     
                         <div class="form-group">
-                            <asp:Label ID="lblCedulaRif" runat="server" Text="Cédula o Rif"></asp:Label>
+                            <asp:Label ID="lblCedulaRif" runat="server" Text="Cédula"></asp:Label>
                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
                                 <asp:DropDownList ID="dplCedula" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
                                     <asp:ListItem>V</asp:ListItem>
                                     <asp:ListItem>E</asp:ListItem>
                                     <asp:ListItem>P</asp:ListItem>
-                                    <asp:ListItem>J</asp:ListItem>
-                                    <asp:ListItem>G</asp:ListItem>
+                                   
                                 </asp:DropDownList>
                           
                             </div>
                         </div>
 
-                     <%--<Campo de texto de la cedula o rif>--%>
+                     <%--<Campo de texto de la cedula >--%>
                         <div class="form-group">
                             <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
                                 <asp:TextBox ID="txtCedula" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                     placeholder="Ingrese su cédula o rif" autocomplete="off" class="form-control">
+                                     placeholder="Ingrese su cédula " autocomplete="off" class="form-control">
                                 </asp:TextBox>
                             </div>
                         </div>  
@@ -155,8 +154,8 @@
                         <div class="row">                            
                             <div style="margin-left:auto; margin-right:auto;">
                                 <p class="text-right">
-                                    <asp:Button ID="btnRegistrar" runat="server" class="btn btn-space btn-primary" Text="Registrar" OnClick="btnRegistrar_Click" /> 
                                     <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-space btn-secondary" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />                                  
+                                    <asp:Button ID="btnRegistrar" runat="server" class="btn btn-space btn-primary" Text="Registrar" OnClick="btnRegistrar_Click" /> 
                                 </p>
                             </div>
                         </div>

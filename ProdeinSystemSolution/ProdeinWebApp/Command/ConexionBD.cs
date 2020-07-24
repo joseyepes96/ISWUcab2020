@@ -31,6 +31,10 @@ namespace ProdeinWebApp.Command
             return conexionBD;
         }
 
+
+    /*    --------------------------------     USUARIOS -------------------------------------------------------  */
+    /*    ----------------------------------------------------------------------------------------------------- */
+
         public Usuario consultarUsuarioNombre(string nombre)
         {
             Usuario userBD = new Usuario();
@@ -193,6 +197,14 @@ namespace ProdeinWebApp.Command
             }
             return respuesta;
         }
+        /*    --------------------------------   FIN USUARIOS   ---------------------------------------------------  */
+        /*    ----------------------------------------------------------------------------------------------------- */
+
+
+        /*    ----------------------------------------------------------------------------------------------------- */
+        /*    --------------------------------   PERSONAS   ---------------------------------------------------  */
+       
+
         public Personas consultarPersona(int cedula)
         {
             Personas userBD = new Personas();
@@ -424,6 +436,247 @@ namespace ProdeinWebApp.Command
             }
             return respuesta;
         }
+        /*    --------------------------------   FIN PERSONAS   ---------------------------------------------------  */
+        /*    ----------------------------------------------------------------------------------------------------- */
+
+
+
+        /*    ------------------------------------------------------------------------------------------------------ */
+        /*    --------------------------------------  EMPRESAS  ---------------------------------------------------  */
+
+        public Empresas consultarEmpresa(int rif)
+        {
+            Empresas userBD = new Empresas();
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM `empresa` WHERE `numeroRif` = '" + rif + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    userBD._id = reader.GetInt32(0);
+                    userBD._rif = reader.GetString(1);
+                    userBD._numeroRif = reader.GetInt32(2);
+                    userBD._nombre = reader.GetString(3);
+                    userBD._correo = reader.GetString(4);
+                    userBD._direccion = reader.GetString(5);
+                    userBD._pais = reader.GetString(6);
+                    userBD._estado = reader.GetString(7);
+                    userBD._zonaPostal = reader.GetInt32(8);
+                    userBD._telf1 = reader.GetInt32(9);
+                    userBD._telf2 = reader.GetInt32(10);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return userBD;
+        }
+
+        public bool eliminarEmpresa(int rif)
+        {
+            Empresas empresaBD = new Empresas();
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+
+
+            try
+            {
+                string query = "DELETE FROM `empresa` WHERE `numeroRif` = '" + rif + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
+
+        public bool modificarEmpresa(Empresas empresa)
+        {
+            Empresas empresaBD = empresa;
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+            try
+            {
+                string query = "UPDATE `empresa` SET `tipoDocumento`='" + empresa._rif + "',`numeroRif`='" + empresa._numeroRif + "',`razonSocial`='" + empresa._nombre + "',`correo`='" + empresa._correo + "',`direccion`='" + empresa._direccion + "',`pais`='" + empresa._pais + "',`estado`='" + empresa._estado + "',`zonaPostal`='" + empresa._zonaPostal + "',`telefono1`='" + empresa._telf1 + "',`telefono2`='" + empresa._telf2 + "' WHERE `numeroRif` ='" + empresa._numeroRif + "'";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
+        public Empresas consultarEmpresaRif(string tipoDoc, int cedula)
+        {
+            Empresas userBD = new Empresas();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM Empresa WHERE tipoDocumento  = '" + tipoDoc + "' and numeroRif ='" + cedula + "';"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+
+                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
+                {
+                    //Almacena cada registro
+
+                    userBD._id = reader.GetInt32(0);
+                    userBD._rif = reader.GetString(1);
+                    userBD._numeroRif = reader.GetInt32(2);
+                    userBD._nombre = reader.GetString(3);
+                    userBD._correo = reader.GetString(4);
+                    userBD._direccion = reader.GetString(5);
+                    userBD._pais = reader.GetString(6);
+                    userBD._estado = reader.GetString(7);
+                    userBD._zonaPostal = reader.GetInt32(8);
+                    userBD._telf1 = reader.GetInt32(9);
+                    userBD._telf2 = reader.GetInt32(10);
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return userBD;
+        }
+
+        /// <summary>
+        /// Consulta todos los usuarios registrados en el sistema
+        /// </summary>
+        /// <returns>Devuelve una lista de tipo Empresa</returns>
+        public List<Empresas> consultarEmpresa()
+        {
+            List<Empresas> empre = new List<Empresas>();
+            Empresas userBD = new Empresas();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM Empresa;"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+
+                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
+                {
+                    //Almacena cada registro
+                    userBD = new Empresas();
+
+                    userBD._id = reader.GetInt32(0);
+                    userBD._rif = reader.GetString(1);
+                    userBD._numeroRif = reader.GetInt32(2);
+                    userBD._nombre = reader.GetString(3);
+                    userBD._correo = reader.GetString(4);
+                    userBD._direccion = reader.GetString(5);
+                    userBD._pais = reader.GetString(6);
+                    userBD._estado = reader.GetString(7);
+                    userBD._zonaPostal = reader.GetInt32(8);
+                    userBD._telf1 = reader.GetInt32(9);
+                    userBD._telf2 = reader.GetInt32(10);
+
+                    empre.Add(userBD);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return empre;
+        }
+
+
+        /// <summary>
+        /// Registro de empresas
+        /// </summary>
+        /// <param name="person"></param>
+        /// <returns></returns>
+        public bool registrarEmpresa(Empresas empresa)
+        {
+            Empresas userBD = new Empresas();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+
+            try
+            {
+                string query = "INSERT INTO empresa(tipoDocumento, numeroRif, razonSocial, correo, " +
+                    "direccion, pais, estado, zonaPostal, telefono1, telefono2) VALUES ( '" + empresa._rif + "', '" + empresa._numeroRif + "', '" + empresa._nombre + "', " +
+                    "'" + empresa._correo + "','" + empresa._direccion + "'," + "'" + empresa._pais + "', '" + empresa._estado + "','" + empresa._zonaPostal + "', '" + empresa._telf1 + "','" + empresa._telf2 + "');";
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                respuesta = true;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return respuesta;
+        }
+
+
+
+
+
+
+
+
+
+        /*    --------------------------------   FIN EMPRESAS   ---------------------------------------------------  */
+        /*    ----------------------------------------------------------------------------------------------------- */
+
+
 
     }
 }

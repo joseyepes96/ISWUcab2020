@@ -55,7 +55,7 @@ namespace ProdeinWebApp.Views.User.Persona
                     if (respuesta)
                     {
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona ha sido registrado exitosamente');" +
-                             "window.location ='../Home.aspx';", true);
+                             "window.location ='Home.aspx';", true);
                     }
                     else
                     {

@@ -9,7 +9,7 @@ namespace ProdeinWebApp.Models
     {
         public int _id { get; set; }
         public string _nombre { get; set; }
-        public string _cedulaRif { get; set; }    // Si es V, J, E, G, P
+        public string _cedulaRif { get; set; }    // Si es V,E, P
         public int _numeroCedulaRif { get; set; }
         public string _sexo { get; set; }
         public int _edad { get; set; }
