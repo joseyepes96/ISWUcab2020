@@ -20,9 +20,7 @@
                                 <asp:DropDownList ID="dplCedula" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
                                     <asp:ListItem>V</asp:ListItem>
                                     <asp:ListItem>E</asp:ListItem>
-                                    <asp:ListItem>P</asp:ListItem>
-                                    <asp:ListItem>J</asp:ListItem>
-                                    <asp:ListItem>G</asp:ListItem>
+                                    <asp:ListItem>P</asp:ListItem>                                  
                                 </asp:DropDownList>
                           
                             </div>

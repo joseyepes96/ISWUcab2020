@@ -16,7 +16,7 @@
                                      
                                     <asp:Button runat ="server" ID="btnCancelar" CssClass="btn btn-space btn-secondary" OnClick="btnCancelar_Click" Text="Cancelar" cCausesValidation="False"/>
                                      
-                                    <asp:Button runat ="server" ID="btnEliminar" class="btn btn-space btn-primary" OnClick="btnEliminar_Click" Text="Eliminar" CausesValidation="False" OnClientClick="return confirm(&quot;¿Seguro que va a eliminar a esta Persona?&quot;)"/> 
+                                    <asp:Button runat ="server" ID="btnEliminar" class="btn btn-space btn-primary" OnClick="btnEliminar_Click" Text="Eliminar" CausesValidation="False" OnClientClick="return confirm(&quot;¿Seguro que va a eliminar a esta Empresa?&quot;)"/> 
                                 </p>
                             </div>
             </div>

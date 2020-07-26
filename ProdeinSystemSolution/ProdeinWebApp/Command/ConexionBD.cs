@@ -676,7 +676,167 @@ namespace ProdeinWebApp.Command
         /*    --------------------------------   FIN EMPRESAS   ---------------------------------------------------  */
         /*    ----------------------------------------------------------------------------------------------------- */
 
+        public bool registrarDonaciones(Donacion donacion)
+        {
+            Donacion userBD = new Donacion();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+
+            try
+            {
+                string query = "INSERT INTO donaciones(nombre, tipoDocumento, numeroCedulaRif, fecha, " +
+                    "monto, moneda, tipoDonacion, formaDePago) VALUES ( '" + donacion._nombre + "', '" + donacion._cedulaRif+ "', '" + donacion._numCedRif+ "', " +
+                    "'" + donacion._fechaDonacion + "','" + donacion._monto + "'," + "'" +donacion._moneda+ "', '" + donacion._tipoDeDonacion + "','" +donacion._formaDePago + "');";
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+                respuesta = true;
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return respuesta;
+        }
+        public Donacion consultarDonacion (double id)
+        {
+            Donacion userBD = new Donacion();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM donaciones WHERE id  = '" + id + "' ;"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+
+                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
+                {
+                    //Almacena cada registro
+
+                    userBD._id = reader.GetInt32(0);
+                    userBD._nombre = reader.GetString(1);
+                    userBD._cedulaRif = reader.GetString(2);
+                    userBD._numCedRif = reader.GetInt32(3);
+                    userBD._fechaDonacion = reader.GetString(4);
+                    userBD._monto = reader.GetDouble(5);
+                    userBD._moneda = reader.GetString(6);
+                    userBD._tipoDeDonacion = reader.GetString(7);
+                    userBD._formaDePago= reader.GetString(8);
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return userBD;
+        }
+        public bool eliminarDonacion(double id)
+        {
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
 
 
+            try
+            {
+                string query = "DELETE FROM `donaciones` WHERE `id` = '" + id + "';";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
+        public bool modificarDonacion(Donacion donacion)
+        {
+            Donacion donacionBD = donacion;
+            MySqlConnection conexionBD = conectarBD();
+            MySqlDataReader reader = null;
+            bool respuesta = false;
+            try
+            {
+                string query = "UPDATE `donaciones` SET `nombre`='" + donacion._nombre + "',`tipoDocumento`='" + donacion._cedulaRif + "',`numeroCedulaRif`='" + donacion._numCedRif + "',`fecha`='" + donacion._fechaDonacion + "',`monto`='" + donacion._monto + "',`moneda`='" + donacion._moneda + "',`tipoDonacion`='" + donacion._tipoDeDonacion + "',`formaDePago`='" + donacion._formaDePago + "' WHERE `id` ='" + donacion._id + "'";
+                MySqlCommand comando = new MySqlCommand(query);
+                comando.Connection = conexionBD;
+                conexionBD.Open();
+                reader = comando.ExecuteReader();
+                respuesta = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexionBD.Close();
+            }
+            return respuesta;
+        }
+        public List<Donacion> consultarDonacion()
+        {
+            List<Donacion> donacion = new List<Donacion>();
+            Donacion userBD = new Donacion();
+            MySqlConnection conexionBD = conectarBD(); //llamo a conectar la bd
+            MySqlDataReader reader = null;
+
+            try
+            {
+                string query = "SELECT * FROM donaciones;"; //Consulta a MySQL (Muestra las bases de datos que tiene el servidor)
+                MySqlCommand comando = new MySqlCommand(query); //Declaración SQL para ejecutar contra una base de datos MySQL
+                comando.Connection = conexionBD; //Establece la MySqlConnection utilizada por esta instancia de MySqlCommand
+                conexionBD.Open(); //Abre la conexión
+                reader = comando.ExecuteReader(); //Ejecuta la consulta y crea un MySqlDataReader
+
+                while (reader.Read()) //Avanza MySqlDataReader al siguiente registro
+                {
+                    //Almacena cada registro
+                    userBD = new Donacion();
+
+                    userBD._id = reader.GetInt32(0);
+                    userBD._nombre = reader.GetString(1);
+                    userBD._cedulaRif = reader.GetString(2);
+                    userBD._numCedRif = reader.GetInt32(3);
+                    userBD._fechaDonacion = reader.GetString(4);
+                    userBD._monto = reader.GetDouble(5);
+                    userBD._moneda = reader.GetString(6);
+                    userBD._tipoDeDonacion = reader.GetString(7);
+                    userBD._formaDePago = reader.GetString(8);
+
+                    donacion.Add(userBD);
+                }
+            }
+            catch (MySqlException ex)
+            {
+                throw ex; //Si existe un error aquí muestra el mensaje
+            }
+            finally
+            {
+                conexionBD.Close(); //Cierra la conexión a MySQL
+            }
+            return donacion;
+        }
     }
 }
