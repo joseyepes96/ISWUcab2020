@@ -28,5 +28,25 @@ namespace ProdeinWebApp.Controllers
 
             return usuario;
         }
+
+        public Boolean validarCampoUsuario(string usuario)
+        {
+            int j = 0;                               //indicará si cumple con el formato NombreApellido
+            char letra;
+            if (!string.IsNullOrEmpty(usuario))                   //si el campo no está vacío
+            {
+                for (int i = 0; i < usuario.Length; i++)
+                {
+                    letra = usuario[i];
+                    if (letra >= 'A' && letra <= 'Z')
+                        j++;
+                }
+                if (j == 2 && (usuario[0] >= 'A' && usuario[0] <= 'Z'))
+                     return true;
+            }
+
+            return false;
+        }
+
     }
 }

@@ -34,37 +34,42 @@ namespace ProdeinWebApp.Views.Admin
                 var loginUsuario = loginCtrl.verificarUsuario(txtNombre.Text, txtPassword.Text);
 
                 if (!string.IsNullOrEmpty(loginUsuario._nombre)) // si existe el usuario
-                {
                     Response.Write("<script language=javascript>alert('El usuario que ha ingresado ya esta registrado');</script>");
-                    
-                }
+                else
+                if (!loginCtrl.validarCampoUsuario(txtNombre.Text))          //Valida que cumpla el formato NombreApellido
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El nombre del usuario no corresponde al formato NombreApellido');", true);
                 else
                 {
-                    // se llena el objeto a registrar
-                    usuario._nombre = txtNombre.Text;
-                    usuario._password = txtPassword.Text;
-                    usuario._rol = txtRol.Text;
-                    usuario._permisos = dplPermisos.SelectedValue;
-                    respuesta = userCtrl.agregarUsuario(usuario);  
-                    if(respuesta)
+                    if (txtPassword.Text.Equals(txtConfirmarPassword.Text))    //Si las contraseñas son iguales
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(),"alert", "alert('El usuario ha sido registrado exitosamente');", true);                      
+                        // se llena el objeto a registrar
+                        usuario._nombre = txtNombre.Text;
+                        usuario._password = txtPassword.Text;
+                        usuario._rol = txtRol.Text;
+                        usuario._permisos = dplPermisos.SelectedValue;
+                        respuesta = userCtrl.agregarUsuario(usuario);
+                        if (respuesta)
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario ha sido registrado exitosamente');", true);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no pudo ser registrado');" +
+                                   "window.location ='Home.aspx';", true);
+                            //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
+                        }
                     }
                     else
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('El usuario no pudo ser registrado');" +
-                               "window.location ='Home.aspx';", true);
-                        //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
-                    }                   
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Las contraseñas no son iguales');", true);              
                 }
             }
             catch (Exception ex)
             {
 
                 Session["mensajeError"] = "Ha ocurrido un error al registrar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Response.Redirect("Error.aspx", false);
             }
-            Response.Redirect("ConsultasUsuario.aspx", false);
+            //Response.Redirect("ConsultasUsuario.aspx", false);
         }
 
         protected void txtNombre_TextChanged(object sender, EventArgs e)

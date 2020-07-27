@@ -56,8 +56,8 @@
                         <div class="row">                            
                             <div style="margin-left:auto; margin-right:auto;">
                                 <p class="text-right">
-                                    <asp:Button ID="btnRegistrar" runat="server" class="btn btn-space btn-primary" Text="Registrar" OnClick="btnRegistrar_Click" /> 
                                     <asp:Button ID="btnCancelar" runat="server" CssClass="btn btn-space btn-secondary" Text="Cancelar" OnClick="btnCancelar_Click" CausesValidation="False" />                                  
+                                    <asp:Button ID="btnRegistrar" runat="server" class="btn btn-space btn-primary" Text="Registrar" OnClick="btnRegistrar_Click" /> 
                                 </p>
                             </div>
                         </div>

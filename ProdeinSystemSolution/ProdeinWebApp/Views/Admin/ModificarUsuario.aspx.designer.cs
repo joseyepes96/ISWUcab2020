@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ProdeinWebApp.Views.Admin
-{
-
-
-    public partial class ModificarUsuario
-    {
-
+namespace ProdeinWebApp.Views.Admin {
+    
+    
+    public partial class ModificarUsuario {
+        
         /// <summary>
         /// Control LabelBuscar.
         /// </summary>
@@ -22,7 +20,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LabelBuscar;
-
+        
         /// <summary>
         /// Control txtBuscar.
         /// </summary>
@@ -31,7 +29,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtBuscar;
-
+        
         /// <summary>
         /// Control btnBuscar.
         /// </summary>
@@ -40,7 +38,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnBuscar;
-
+        
         /// <summary>
         /// Control lblNombreUsuario.
         /// </summary>
@@ -49,7 +47,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombreUsuario;
-
+        
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -58,7 +56,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-
+        
         /// <summary>
         /// Control lblPassword.
         /// </summary>
@@ -67,7 +65,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPassword;
-
+        
         /// <summary>
         /// Control txtPassword.
         /// </summary>
@@ -76,7 +74,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPassword;
-
+        
         /// <summary>
         /// Control lblConfirmarPassword.
         /// </summary>
@@ -85,7 +83,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblConfirmarPassword;
-
+        
         /// <summary>
         /// Control txtConfirmarPassword.
         /// </summary>
@@ -94,7 +92,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtConfirmarPassword;
-
+        
         /// <summary>
         /// Control lblRol.
         /// </summary>
@@ -103,7 +101,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblRol;
-
+        
         /// <summary>
         /// Control txtRol.
         /// </summary>
@@ -112,7 +110,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRol;
-
+        
         /// <summary>
         /// Control lblPermisos.
         /// </summary>
@@ -121,7 +119,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPermisos;
-
+        
         /// <summary>
         /// Control dplPermisos.
         /// </summary>
@@ -130,16 +128,7 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList dplPermisos;
-
-        /// <summary>
-        /// Control btnModificar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModificar;
-
+        
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -148,5 +137,14 @@ namespace ProdeinWebApp.Views.Admin
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control btnModificar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnModificar;
     }
 }
