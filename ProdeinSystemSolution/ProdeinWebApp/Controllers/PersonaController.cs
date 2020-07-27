@@ -72,7 +72,7 @@ namespace ProdeinWebApp.Controllers
                  for (int i = 0; i < texto.Length; i++)
                  {
                      letra = texto[i];
-                    if (!(letra >= 'A' && letra <= 'Z') && !(letra >= 'a' && letra <= 'z'))    //si tiene un caracter especial o numero
+                    if (!(letra >= 'A' && letra <= 'Z') && !(letra >= 'a' && letra <= 'z') && !(letra >= ',' && letra <= '/') && !(letra >= ' '))   //si tiene un caracter especial o numero.
                         flag = 1;
                  }
             }

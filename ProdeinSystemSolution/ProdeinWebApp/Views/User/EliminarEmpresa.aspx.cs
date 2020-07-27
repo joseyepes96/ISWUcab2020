@@ -38,7 +38,8 @@ namespace ProdeinWebApp.Views.User.Empresa
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al eliminar la empresa. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                //Response.Redirect("Error.aspx", false);
             }
         }
 

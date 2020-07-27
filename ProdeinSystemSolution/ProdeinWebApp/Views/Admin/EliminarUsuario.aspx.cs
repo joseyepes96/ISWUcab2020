@@ -51,9 +51,11 @@ namespace ProdeinWebApp.Views.Admin
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al eliminar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+
+                // Response.Redirect("Error.aspx", false);
             }
-                
+
         }
 
     }

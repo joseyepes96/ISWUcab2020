@@ -33,46 +33,47 @@ namespace ProdeinWebApp.Views.User.Empresa
                 var loginEmpresa = empresaCtrl.verificarEmpresa(dplRif.SelectedValue, txtNumeroRif.Text);
 
                 
-                if (!string.IsNullOrEmpty(loginEmpresa._nombre)) // si existe la empresa
-                {
+                if (!string.IsNullOrEmpty(loginEmpresa._nombre)) // si existe la empresa           
                     Response.Write("<script language=javascript>alert('La empresa ya esta registrado');</script>");
-
-                }
+                    
                 else
                 {
-                    // se llena el objeto a registrar
-                    empresa._nombre = txtNombreEmpresa.Text;
-                    empresa._rif = dplRif.SelectedValue;
-                    empresa._numeroRif = int.Parse(txtNumeroRif.Text);
-                    empresa._correo = txtCorreo.Text;
-                    empresa._direccion = txtDireccion.Text;
-                    empresa._pais = dplPais.SelectedValue;
-                    empresa._estado = txtEstado.Text;
-                    empresa._zonaPostal = int.Parse(txtZonaPostal.Text);
-                    empresa._telf1 = int.Parse(txtTelefono1.Text);
-                    empresa._telf2 = int.Parse(txtTelefono2.Text);
-
-
-                    respuesta = empresaCtrl.agregarEmpresa(empresa);
-                  
-                    if (respuesta)
+                    if (empresaCtrl.validarTexto(txtNombreEmpresa.Text) && empresaCtrl.validarTexto(txtEstado.Text)
+                        && empresaCtrl.validarCampoCorreo(txtCorreo.Text) && empresaCtrl.validarCampoNumerico(txtNumeroRif.Text)
+                        && empresaCtrl.validarCampoNumerico(txtZonaPostal.Text) && empresaCtrl.validarCampoNumerico(txtTelefono1.Text) && empresaCtrl.validarCampoNumerico(txtTelefono2.Text))
                     {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona ha sido registrado exitosamente');" +
-                             "window.location ='Home.aspx';", true);
+                        // se llena el objeto a registrar
+                        empresa._nombre = txtNombreEmpresa.Text;
+                        empresa._rif = dplRif.SelectedValue;
+                        empresa._numeroRif = int.Parse(txtNumeroRif.Text);
+                        empresa._correo = txtCorreo.Text;
+                        empresa._direccion = txtDireccion.Text;
+                        empresa._pais = dplPais.SelectedValue;
+                        empresa._estado = txtEstado.Text;
+                        empresa._zonaPostal = int.Parse(txtZonaPostal.Text);
+                        empresa._telf1 = int.Parse(txtTelefono1.Text);
+                        empresa._telf2 = int.Parse(txtTelefono2.Text);
+
+
+                        respuesta = empresaCtrl.agregarEmpresa(empresa);
+
+                        if (respuesta)
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Empresa ha sido registrado exitosamente');" +
+                                 "window.location ='Home.aspx';", true);
+                        else
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Empresa no pudo ser registrada');" +
+                                "window.location ='Home.aspx';", true);
                     }
                     else
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona no pudo ser registrada');" +
-                            "window.location ='Home.aspx';", true);
-                        //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
-                    }
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales y que tenga el formato de correo correcto');", true);
+
                 }
             }
             catch (Exception ex)
             {
-
-                Session["mensajeError"] = "Ha ocurrido un error al registrar el usuario. " + ex;
-                Response.Redirect("../Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al registrar la empresa. " + ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS');", true);
+                //Response.Redirect("Error.aspx", false);
             }
         }
     }

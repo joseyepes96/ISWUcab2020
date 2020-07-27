@@ -38,7 +38,8 @@ namespace ProdeinWebApp.Views.Persona
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al eliminar la persona. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                // Response.Redirect("Error.aspx", false);
             }
         }
 

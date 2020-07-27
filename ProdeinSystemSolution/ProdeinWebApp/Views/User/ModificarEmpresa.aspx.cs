@@ -25,29 +25,41 @@ namespace ProdeinWebApp.Views.User.Empresa
                 Empresas empresa = empresaCtrl.verificarEmpresa(Convert.ToInt32(txtIdentificacion.Text));
                 if (!string.IsNullOrEmpty(empresa._nombre))
                 {
-                    empresa._rif = dplRif.Text;
-                    empresa._numeroRif = Convert.ToInt32(txtIdentificacion.Text);
-                    empresa._nombre = txtNombre.Text;
-                    empresa._correo = txtCorreo.Text;
-                    empresa._direccion = txtDireccion.Text;
-                    empresa._pais = dplPais.Text;
-                    empresa._estado = txtEstado.Text;
-                    empresa._zonaPostal = Convert.ToInt32(txtZonaPostal.Text);
-                    empresa._telf1 = Convert.ToInt32(txtTlf1.Text);
-                    empresa._telf2 = Convert.ToInt32(txtTlf2.Text);
-                    respuesta = empresaCtrl.modificarEmpresa(empresa);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona se ha Modificado');", true);
-                    
+                    if (empresaCtrl.validarTexto(txtNombre.Text) && empresaCtrl.validarTexto(txtEstado.Text)
+                        && empresaCtrl.validarCampoCorreo(txtCorreo.Text) && empresaCtrl.validarCampoNumerico(txtIdentificacion.Text)
+                        && empresaCtrl.validarCampoNumerico(txtZonaPostal.Text) && empresaCtrl.validarCampoNumerico(txtTlf1.Text) && empresaCtrl.validarCampoNumerico(txtTlf2.Text))
+                    {
+                        empresa._rif = dplRif.Text;
+                        empresa._numeroRif = Convert.ToInt32(txtIdentificacion.Text);
+                        empresa._nombre = txtNombre.Text;
+                        empresa._correo = txtCorreo.Text;
+                        empresa._direccion = txtDireccion.Text;
+                        empresa._pais = dplPais.Text;
+                        empresa._estado = txtEstado.Text;
+                        empresa._zonaPostal = Convert.ToInt32(txtZonaPostal.Text);
+                        empresa._telf1 = Convert.ToInt32(txtTlf1.Text);
+                        empresa._telf2 = Convert.ToInt32(txtTlf2.Text);
+
+                        respuesta = empresaCtrl.modificarEmpresa(empresa);
+
+                        if (respuesta)
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Empresa se ha Modificado exitosamente');" +
+                                  "window.location ='ModificarPersona.aspx';", true);
+                        else
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Empresa no pudo ser registrada');" +
+                                "window.location ='ModificarPersona.aspx';", true);
+                    }
+                    else
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales y que tenga el formato de correo correcto');", true);
                 }
                 else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona no existe');", true);
-                }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Empresa no existe');", true);
             }
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al modificar la empresa. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                //Response.Redirect("Error.aspx", false);
             }
 
             Response.Redirect("Home.aspx", false);
@@ -83,7 +95,8 @@ namespace ProdeinWebApp.Views.User.Empresa
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al buscar la empresa. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS Y DEBE ESCRIBIR SOLO NUMEROS');", true);
+                //Response.Redirect("Error.aspx", false);
             }
         }
     }
