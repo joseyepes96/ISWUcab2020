@@ -47,7 +47,8 @@ namespace ProdeinWebApp.Views.User.Donaciones
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al buscar la persona. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS');", true);
+                // Response.Redirect("Error.aspx", false);
             }
         }
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -56,36 +57,46 @@ namespace ProdeinWebApp.Views.User.Donaciones
         }
         protected void btnRegistrar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                DonacionesController donacionCtrl = new DonacionesController();
+                Donacion donar = new Donacion();
+                if (donacionCtrl.validarCampoNumerico(txtMonto.Text)) {
+                    var respuesta = false;
+                    donar._nombre = txtNombrePresonaEmpresa.Text;
+                    donar._cedulaRif = txtTipoDocumento.Text;
+                    donar._numCedRif = int.Parse(txtNumeroRifCedula.Text);
+                    donar._fechaDonacion = txtFecha.Text;
+                    donar._formaDePago = dplPago.Text;
+                    donar._monto = Convert.ToDouble(txtMonto.Text);
+                    donar._moneda = dplMoneda.Text;
+                    donar._tipoDeDonacion = dplTipo.Text;
+                    respuesta = donacionCtrl.agregarDonaciones(donar);
 
-            DonacionesController donacionCtrl = new DonacionesController();
-            Donacion donar = new Donacion();
-            if (donacionCtrl.validarCampoNumerico(txtMonto.Text)) {
-                var respuesta = false;
-                donar._nombre = txtNombrePresonaEmpresa.Text;
-                donar._cedulaRif = txtTipoDocumento.Text;
-                donar._numCedRif = int.Parse(txtNumeroRifCedula.Text);
-                donar._fechaDonacion = txtFecha.Text;
-                donar._formaDePago = dplPago.Text;
-                donar._monto = Convert.ToDouble(txtMonto.Text);
-                donar._moneda = dplMoneda.Text;
-                donar._tipoDeDonacion = dplTipo.Text;
-                respuesta = donacionCtrl.agregarDonaciones(donar);
 
-
-                if (respuesta)
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion ha sido registrado exitosamente');" +
-                         "window.location ='Home.aspx';", true);
+                    if (respuesta)
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion ha sido registrado exitosamente');" +
+                             "window.location ='Home.aspx';", true);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no pudo ser registrada');" +
+                            "window.location ='Home.aspx';", true);
+                        //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
+                    }
                 }
                 else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no pudo ser registrada');" +
-                        "window.location ='Home.aspx';", true);
-                    //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
-                }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales');", true);
             }
-            else
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales');", true);
+            catch (Exception ex)
+            {
+
+                Session["mensajeError"] = "Ha ocurrido un error al registrar la persona. " + ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS');", true);
+
+                // Response.Redirect("Error.aspx", false);
+            }
         }
     }
 }

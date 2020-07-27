@@ -45,7 +45,8 @@ namespace ProdeinWebApp.Views.User.Donaciones
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al buscar la donacion. " + ex;
-                Response.Redirect("Error.aspx", false);
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                //Response.Redirect("Error.aspx", false);
             }
         }
         protected void btnModificar_Click(object sender, EventArgs e)
