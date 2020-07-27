@@ -28,7 +28,7 @@
                             <asp:Label ID="lblRifCedula" runat="server" Text="Tipo de documento"></asp:Label>
                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
                                <asp:TextBox ID="txtTipoDocumento" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                     placeholder="" autocomplete="off" class="form-control" Width="27px" Height="32px"></asp:TextBox>
+                                     placeholder="" autocomplete="off" class="form-control" Width="46px" Height="41px"></asp:TextBox>
                             </div>
                         </div>
 
@@ -63,7 +63,7 @@
                     <div class="form-group">
                             <asp:Label ID="lblFormaPago" runat="server" Text="formaDePago"></asp:Label>
                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
-                                <asp:DropDownList ID="dplPago" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon" Height="16px" Width="75px">
+                                <asp:DropDownList ID="dplPago" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
                                     <asp:ListItem>Debito</asp:ListItem>
                                     <asp:ListItem>Credito</asp:ListItem>
                                     <asp:ListItem>Efectivo</asp:ListItem>

@@ -25,17 +25,22 @@ namespace ProdeinWebApp.Views.User.Donaciones
             {
                 bool respuesta = false;
                 DonacionesController donacionCtrl = new DonacionesController();
-                Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtId.Text));
-                if (!string.IsNullOrEmpty(donacion._nombre))
+                if (donacionCtrl.validarCampoNumerico(txtId.Text))
                 {
-                    respuesta = donacionCtrl.eliminarDonacion(donacion);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Donacion ha sido eliminada');", true);
-                    Response.Redirect("Home.aspx", false);
+                    Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtId.Text));
+                    if (!string.IsNullOrEmpty(donacion._nombre))
+                    {
+                        respuesta = donacionCtrl.eliminarDonacion(donacion);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Donacion ha sido eliminada');", true);
+                        Response.Redirect("Home.aspx", false);
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Donacion no existe');", true);
+                    }
                 }
                 else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La Donacion no existe');", true);
-                }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Solo se permiten numeros');", true);
 
             }
             catch (Exception ex)

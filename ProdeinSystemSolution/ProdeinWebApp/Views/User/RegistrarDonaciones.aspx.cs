@@ -21,24 +21,28 @@ namespace ProdeinWebApp.Views.User.Donaciones
             {
                 PersonaController personaCtrl = new PersonaController();
                 EmpresasController empresaCtrl = new EmpresasController();
-                Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtBuscar.Text));
-                Empresas empresa = empresaCtrl.verificarEmpresa(Convert.ToInt32(txtBuscar.Text));
+                if (personaCtrl.validarCampoNumerico(txtBuscar.Text)) { 
+                    Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtBuscar.Text));
+                    Empresas empresa = empresaCtrl.verificarEmpresa(Convert.ToInt32(txtBuscar.Text));
                 if (!string.IsNullOrEmpty(persona._nombre))
                 {
                     txtNombrePresonaEmpresa.Text = persona._nombre;
                     txtTipoDocumento.Text = persona._cedulaRif;
                     txtNumeroRifCedula.Text = Convert.ToString(persona._numeroCedulaRif);
-                }
+                    }
                 else if (!string.IsNullOrEmpty(empresa._nombre))
                 {
                     txtNombrePresonaEmpresa.Text = empresa._nombre;
                     txtTipoDocumento.Text = empresa._nombre;
                     txtNumeroRifCedula.Text = Convert.ToString(empresa._numeroRif);
-                }
+                    }
                 else
                 {
                     ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona  o la empresa no estan registrados');", true);
+                    }
                 }
+                else
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Solo se permiten numeros');", true);
             }
             catch (Exception ex)
             {
@@ -55,28 +59,33 @@ namespace ProdeinWebApp.Views.User.Donaciones
 
             DonacionesController donacionCtrl = new DonacionesController();
             Donacion donar = new Donacion();
+            if (donacionCtrl.validarCampoNumerico(txtMonto.Text)) {
                 var respuesta = false;
-                    donar._nombre = txtNombrePresonaEmpresa.Text;
-                    donar._cedulaRif = txtTipoDocumento.Text;
-                    donar._numCedRif = int.Parse(txtNumeroRifCedula.Text);
-                    donar._fechaDonacion = txtFecha.Text;
-                    donar._formaDePago = dplPago.Text;
-                    donar._monto = Convert.ToDouble(txtMonto.Text);
-                    donar._moneda = dplMoneda.Text;
-                    donar._tipoDeDonacion = dplTipo.Text;
-                    respuesta = donacionCtrl.agregarDonaciones(donar);
+                donar._nombre = txtNombrePresonaEmpresa.Text;
+                donar._cedulaRif = txtTipoDocumento.Text;
+                donar._numCedRif = int.Parse(txtNumeroRifCedula.Text);
+                donar._fechaDonacion = txtFecha.Text;
+                donar._formaDePago = dplPago.Text;
+                donar._monto = Convert.ToDouble(txtMonto.Text);
+                donar._moneda = dplMoneda.Text;
+                donar._tipoDeDonacion = dplTipo.Text;
+                respuesta = donacionCtrl.agregarDonaciones(donar);
 
-                    if (respuesta)
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion ha sido registrado exitosamente');" +
-                             "window.location ='Home.aspx';", true);
-                    }
-                    else
-                    {
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no pudo ser registrada');" +
-                            "window.location ='Home.aspx';", true);
-                        //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
-                    }
+
+                if (respuesta)
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion ha sido registrado exitosamente');" +
+                         "window.location ='Home.aspx';", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no pudo ser registrada');" +
+                        "window.location ='Home.aspx';", true);
+                    //Response.Write("<script language=javascript>alert('El usuario no pudo ser registrado');</script>");
+                }
+            }
+            else
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales');", true);
         }
     }
 }

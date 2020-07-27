@@ -24,18 +24,23 @@ namespace ProdeinWebApp.Views.User.Donaciones
             try
             {
                 DonacionesController donacionCtrl = new DonacionesController();
-                Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtBuscar.Text));
-                if (!string.IsNullOrEmpty(donacion._nombre))
+                if (donacionCtrl.validarCampoNumerico(txtBuscar.Text))
                 {
-                    txtNumeroRifCedula.Text = Convert.ToString(donacion._numCedRif);
-                    txtNombrePresonaEmpresa.Text = donacion._nombre;
-                    txtMonto.Text = Convert.ToString(donacion._monto);
-                    txtFecha.Text = donacion._fechaDonacion;
+                    Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtBuscar.Text));
+                    if (!string.IsNullOrEmpty(donacion._nombre))
+                    {
+                        txtNumeroRifCedula.Text = Convert.ToString(donacion._numCedRif);
+                        txtNombrePresonaEmpresa.Text = donacion._nombre;
+                        txtMonto.Text = Convert.ToString(donacion._monto);
+                        txtFecha.Text = donacion._fechaDonacion;
+                    }
+                    else
+                    {
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no existe');", true);
+                    }
                 }
                 else
-                {
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no existe');", true);
-                }
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Solo se permiten numeros');", true);
             }
             catch (Exception ex)
             {
@@ -52,16 +57,31 @@ namespace ProdeinWebApp.Views.User.Donaciones
                 Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtBuscar.Text));
                 if (!string.IsNullOrEmpty(donacion._nombre))
                 {
-                    donacion._cedulaRif = dplRifCedula.Text;
-                    donacion._numCedRif = Convert.ToInt32(txtNumeroRifCedula.Text);
-                    donacion._nombre = txtNombrePresonaEmpresa.Text;
-                    donacion._moneda = dplMoneda.Text;
-                    donacion._monto = Convert.ToDouble(txtMonto.Text);
-                    donacion._fechaDonacion = txtFecha.Text;
-                    donacion._tipoDeDonacion = dplTipo.Text;
-                    donacion._formaDePago = dplPago.Text;
-                    respuesta = donacionCtrl.modificarDonacion(donacion);
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion se ha Modificado');", true);
+                    if (donacionCtrl.validarCampoNumerico(txtNumeroRifCedula.Text) && donacionCtrl.validarCampoNumerico(txtMonto.Text) && donacionCtrl.validarTexto(txtNombrePresonaEmpresa.Text))
+                    {
+                        donacion._cedulaRif = dplRifCedula.Text;
+                        donacion._numCedRif = Convert.ToInt32(txtNumeroRifCedula.Text);
+                        donacion._nombre = txtNombrePresonaEmpresa.Text;
+                        donacion._moneda = dplMoneda.Text;
+                        donacion._monto = Convert.ToDouble(txtMonto.Text);
+                        donacion._fechaDonacion = txtFecha.Text;
+                        donacion._tipoDeDonacion = dplTipo.Text;
+                        donacion._formaDePago = dplPago.Text;
+                        respuesta = donacionCtrl.modificarDonacion(donacion);
+                        if (respuesta)
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion se ha Modificado');" +
+                                "window.location ='ModificarDonaciones.aspx';", true);
+                        }
+                        else
+                        {
+                            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La donacion no pudo ser modificada');" +
+                                "window.location ='ModificarDonaciones.aspx';", true);
+                        }
+                    }
+                    else
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('Hay datos inválidos. Revise que no tenga caracteres especiales');", true);
+
                 }
                 else
                 {
@@ -70,10 +90,11 @@ namespace ProdeinWebApp.Views.User.Donaciones
             }
             catch (Exception ex)
             {
-                Session["mensajeError"] = "Ha ocurrido un error al modificar la donacion. " + ex;
-                Response.Redirect("Error.aspx", false);
+                Session["mensajeError"] = "Ha ocurrido un error al modificar la persona. " + ex;
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                //Response.Redirect("Error.aspx", false);
             }
-            Response.Redirect("Home.aspx", false);
+           // Response.Redirect("Home.aspx", false);
         }
     }
 }
