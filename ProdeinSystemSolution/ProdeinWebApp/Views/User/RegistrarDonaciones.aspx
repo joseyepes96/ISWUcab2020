@@ -6,25 +6,29 @@
                 <h3 class="card-header">Registrar Donaciones</h3>
                 <div class="card-body">
                     <%--<form id="basicform" runat="server" data-parsley-validate="">--%>
+                    <div class="card-body">
+                    <div class="form-group">
+                        <asp:Label ID="LabelBuscar" for="txtBuscar" runat="server" Text="Cedula o Rif del donante:"></asp:Label>
+                        <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span> 
+                        <asp:TextBox ID="txtBuscar" runat="server" type="text" name="name" data-parsley-trigger="change" 
+                                     placeholder="Buscar" autocomplete="off" class="form-control">
+                        </asp:TextBox>    
+                        <asp:Button ID="btnBuscar" runat="server" class="btn btn-space btn-primary ml-1" Text="Buscar" OnClick="btnBuscar_Click" Width="87px" />
+                        </div>
+                    </div>
                         <div class="form-group">
                             <asp:Label ID="lblNombrePersonaEmpresa" for="txtNombreEmpresaPersona" runat="server" Text="Nombre"></asp:Label>
                             <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user"></i></span></span>
                                 <asp:TextBox ID="txtNombrePresonaEmpresa" runat="server" type="text" name="name" data-parsley-trigger="change"  
-                                     placeholder="Ingrese Nombre de la Empresa/Persona" autocomplete="off" class="form-control" Width="363px"></asp:TextBox>
+                                     placeholder="" autocomplete="off" class="form-control" Width="363px"></asp:TextBox>
                             </div>
                         </div>     
                     
                         <div class="form-group">
-                            <asp:Label ID="lblRifCedula" runat="server" Text="RifCedula"></asp:Label>
+                            <asp:Label ID="lblRifCedula" runat="server" Text="Tipo de documento"></asp:Label>
                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
-                                <asp:DropDownList ID="dplRifCedula" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
-                                    <asp:ListItem>V</asp:ListItem>
-                                    <asp:ListItem>E</asp:ListItem>
-                                    <asp:ListItem>P</asp:ListItem>
-                                    <asp:ListItem>J</asp:ListItem>
-                                    <asp:ListItem>G</asp:ListItem>
-                                </asp:DropDownList>
-                          
+                               <asp:TextBox ID="txtTipoDocumento" runat="server" type="text" name="name" data-parsley-trigger="change"  
+                                     placeholder="" autocomplete="off" class="form-control" Width="27px" Height="32px"></asp:TextBox>
                             </div>
                         </div>
 
@@ -59,7 +63,7 @@
                     <div class="form-group">
                             <asp:Label ID="lblFormaPago" runat="server" Text="formaDePago"></asp:Label>
                            <div class="input-group mb-3"><span class="input-group-prepend"><span class="input-group-text"><i class="fas fa-user-times"></i></span></span>
-                                <asp:DropDownList ID="dplPago" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon">
+                                <asp:DropDownList ID="dplPago" runat="server" style="padding:10px 50px 10px 50px; text-align: left;" class="input-group-prepend be-addon" Height="16px" Width="75px">
                                     <asp:ListItem>Debito</asp:ListItem>
                                     <asp:ListItem>Credito</asp:ListItem>
                                     <asp:ListItem>Efectivo</asp:ListItem>
@@ -104,4 +108,5 @@
             <br />
             <br />
         </div>
+    </div>
 </asp:Content>

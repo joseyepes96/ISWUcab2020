@@ -15,6 +15,37 @@ namespace ProdeinWebApp.Views.User.Donaciones
         {
 
         }
+        protected void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PersonaController personaCtrl = new PersonaController();
+                EmpresasController empresaCtrl = new EmpresasController();
+                Personas persona = personaCtrl.verificarPersona(Convert.ToInt32(txtBuscar.Text));
+                Empresas empresa = empresaCtrl.verificarEmpresa(Convert.ToInt32(txtBuscar.Text));
+                if (!string.IsNullOrEmpty(persona._nombre))
+                {
+                    txtNombrePresonaEmpresa.Text = persona._nombre;
+                    txtTipoDocumento.Text = persona._cedulaRif;
+                    txtNumeroRifCedula.Text = Convert.ToString(persona._numeroCedulaRif);
+                }
+                else if (!string.IsNullOrEmpty(empresa._nombre))
+                {
+                    txtNombrePresonaEmpresa.Text = empresa._nombre;
+                    txtTipoDocumento.Text = empresa._nombre;
+                    txtNumeroRifCedula.Text = Convert.ToString(empresa._numeroRif);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('La persona  o la empresa no estan registrados');", true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Session["mensajeError"] = "Ha ocurrido un error al buscar la persona. " + ex;
+                Response.Redirect("Error.aspx", false);
+            }
+        }
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             Response.Redirect("Home.aspx", false);
@@ -26,7 +57,7 @@ namespace ProdeinWebApp.Views.User.Donaciones
             Donacion donar = new Donacion();
                 var respuesta = false;
                     donar._nombre = txtNombrePresonaEmpresa.Text;
-                    donar._cedulaRif = dplRifCedula.SelectedValue;
+                    donar._cedulaRif = txtTipoDocumento.Text;
                     donar._numCedRif = int.Parse(txtNumeroRifCedula.Text);
                     donar._fechaDonacion = txtFecha.Text;
                     donar._formaDePago = dplPago.Text;

@@ -15,6 +15,33 @@ namespace ProdeinWebApp.Views.User.Donaciones
     {
 
         /// <summary>
+        /// Control LabelBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelBuscar;
+
+        /// <summary>
+        /// Control txtBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtBuscar;
+
+        /// <summary>
+        /// Control btnBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBuscar;
+
+        /// <summary>
         /// Control lblNombrePersonaEmpresa.
         /// </summary>
         /// <remarks>
@@ -42,13 +69,13 @@ namespace ProdeinWebApp.Views.User.Donaciones
         protected global::System.Web.UI.WebControls.Label lblRifCedula;
 
         /// <summary>
-        /// Control dplRifCedula.
+        /// Control txtTipoDocumento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dplRifCedula;
+        protected global::System.Web.UI.WebControls.TextBox txtTipoDocumento;
 
         /// <summary>
         /// Control txtNumeroRifCedula.
