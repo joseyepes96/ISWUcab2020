@@ -26,6 +26,7 @@ namespace ProdeinWebApp.Views
                 if (!string.IsNullOrEmpty(loginUsuario._nombre)) // si existe el usuario
                 {
                     Session["usuarioLogueado"] = loginUsuario; // guardo la sesion del usuario para usarlo en todo el sistema
+                    Session["NombreLogin"] = loginUsuario._nombre;
 
                     if (loginUsuario._rol == "admin")
                     {
@@ -44,7 +45,8 @@ namespace ProdeinWebApp.Views
             catch (Exception ex)
             {
                 Session["mensajeError"] = "Ha ocurrido un error al acceder en el Login. " + ex;
-                Response.Redirect("Error.aspx");
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "alert('NO DEBE HABER CAMPOS VACÍOS ');", true);
+                //Response.Redirect("Error.aspx");
             }
         }
     }

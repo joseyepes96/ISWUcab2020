@@ -58,7 +58,7 @@ namespace ProdeinWebApp.Views.User.Donaciones
                 Donacion donacion = donacionCtrl.verificarDonacion(Convert.ToInt32(txtBuscar.Text));
                 if (!string.IsNullOrEmpty(donacion._nombre))
                 {
-                    if (donacionCtrl.validarCampoNumerico(txtNumeroRifCedula.Text) && donacionCtrl.validarCampoNumerico(txtMonto.Text) && donacionCtrl.validarTexto(txtNombrePresonaEmpresa.Text))
+                    if (donacionCtrl.validarCampoNumerico(txtNumeroRifCedula.Text) && donacionCtrl.validarCampoNumericoDecimal(txtMonto.Text) && donacionCtrl.validarTexto(txtNombrePresonaEmpresa.Text))
                     {
                         donacion._cedulaRif = dplRifCedula.Text;
                         donacion._numCedRif = Convert.ToInt32(txtNumeroRifCedula.Text);

@@ -9,9 +9,11 @@ namespace ProdeinWebApp.Views.Shared
 {
     public partial class Home : System.Web.UI.MasterPage
     {
+        public string nombreUsuario { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            this.nombreUsuario = Session["NombreLogin"].ToString();
         }
     }
 }

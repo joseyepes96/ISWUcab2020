@@ -61,7 +61,7 @@ namespace ProdeinWebApp.Views.User.Donaciones
             {
                 DonacionesController donacionCtrl = new DonacionesController();
                 Donacion donar = new Donacion();
-                if (donacionCtrl.validarCampoNumerico(txtMonto.Text)) {
+                if (donacionCtrl.validarCampoNumericoDecimal(txtMonto.Text)) {
                     var respuesta = false;
                     donar._nombre = txtNombrePresonaEmpresa.Text;
                     donar._cedulaRif = txtTipoDocumento.Text;

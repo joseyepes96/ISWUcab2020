@@ -47,6 +47,7 @@ namespace ProdeinWebApp.Controllers
 
             return listaDonaciones;
         }
+
         public Boolean validarCampoNumerico(string numero)
         {
             char letra = ' ';
@@ -66,6 +67,32 @@ namespace ProdeinWebApp.Controllers
 
             return true;
         }
+
+        public Boolean validarCampoNumericoDecimal(string numero)
+        {
+            char letra = ' ';
+            int flag = 0, j=0;
+
+            if (!string.IsNullOrEmpty(numero))                   //si el campo no está vacío
+            {
+                for (int i = 0; i < numero.Length; i++)
+                {
+                    letra = numero[i];
+                    if (!(letra >= '0' && letra <= '9'))        //si tiene un caracter que no es numero y un punto para el decimal
+                    {
+                        if (letra == ',' && numero[i-1] !=' ' && numero[i + 1] != ' ')       //solo debe llevar un punto como decimal
+                            j++;
+                        else
+                            flag = 1;
+                    }
+                }
+            }
+            if ( flag == 1 || j >= 2)
+                return false;
+
+            return true;
+        }
+
         public Boolean validarTexto(string texto)
         {
             char letra = ' ';
